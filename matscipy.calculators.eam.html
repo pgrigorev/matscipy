@@ -426,20 +426,20 @@ mean geometric value from each pure species</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>files</strong> (<em>array of strings</em>) – Contain all the files to merge and mix</p></li>
 <li><p><strong>kind</strong> (<em>string</em>) – kinf of eam. Supported eam/alloy, eam/fs</p></li>
-<li><p><strong>method</strong> (<em>string</em><em>, </em><em>{geometric</em><em>, </em><em>arithmetic</em><em>, </em><em>weighted</em><em>, </em><em>fitted}</em>) – Method used to mix the pair interaction terms. The geometric,
-arithmetic, and weighted arithmetic average are available. The weighted
-arithmetic method is using the electron density function values of atom
-<code class="code docutils literal notranslate"><span class="pre">a</span></code> and <code class="code docutils literal notranslate"><span class="pre">b</span></code> to ponderate the pair potential between species
-<code class="code docutils literal notranslate"><span class="pre">a</span></code> and <span class="math notranslate nohighlight">\(b\)</span>, <code class="code docutils literal notranslate"><span class="pre">rep_ab</span> <span class="pre">=</span> <span class="pre">0.5(fb/fa</span> <span class="pre">*</span> <span class="pre">rep_a</span> <span class="pre">+</span> <span class="pre">fa/fb</span> <span class="pre">*</span>
-<span class="pre">rep_b)</span></code>, see [1]. The fitted method is to be used if <code class="code docutils literal notranslate"><span class="pre">rep_ab</span></code>
-has been previously fitted and is parse as <span class="math notranslate nohighlight">\(rep_ab\)</span> karg.</p></li>
-<li><p><strong>f</strong> (<em>np.array</em>) – fitted density term (for FS eam style)</p></li>
-<li><p><strong>rep_ab</strong> (<em>np.array</em>) – fitted rep_ab term</p></li>
-<li><p><strong>alphas</strong> (<em>array</em>) – fitted alpha values for the fine tuned mixing.
-<code class="code docutils literal notranslate"><span class="pre">rep_ab</span> <span class="pre">=</span> <span class="pre">alpha_a*rep_a+alpha_b*rep_b</span></code></p></li>
-<li><p><strong>betas</strong> (<em>array</em>) – fitted values for the fine tuned mixing.
-<code class="code docutils literal notranslate"><span class="pre">f_ab</span> <span class="pre">=</span> <span class="pre">beta_00*rep_a+beta_01*rep_b</span></code>
-<code class="code docutils literal notranslate"><span class="pre">f_ba</span> <span class="pre">=</span> <span class="pre">beta_10*rep_a+beta_11*rep_b</span></code></p></li>
+<li><p><strong>method</strong> (<em>string</em><em>, </em><em>(</em><em>geometric</em><em>,</em><em>arithmetic</em><em>,</em><em>weighted</em><em>,</em><em>fitted</em><em>)</em>) – <p>Method used to mix the pair interaction terms
+Available : Geometric average, arithmetic average, weighted arithmetic average</p>
+<blockquote>
+<div><p>The Weighted arithmetic method is using the electron density function values of atom a and b to
+ponderate the pair potential between species a and b,
+rep_ab = 0.5*(fb/fa * rep_a + fa/fb * rep_b)
+ref : X. W. Zhou, R. A. Johnson, and H. N. G. Wadley, Phys. Rev. B, 69, 144113 (2004)
+Fitted method is to be used if the rep_ab has been previously fitted and is parse as rep_ab karg</p>
+</div></blockquote>
+</p></li>
+<li><p><strong>f</strong> (<em>np.array of the fitted density term</em><em> (</em><em>for FS eam style</em><em>)</em>) – </p></li>
+<li><p><strong>rep_ab</strong> (<em>np.array of the fitted rep_ab term</em>) – </p></li>
+<li><p><strong>alphas</strong> (<em>array of fitted alpha values for the fine tuned mixing. rep_ab = alpha_a*rep_a+alpha_b*rep_b</em>) – </p></li>
+<li><p><strong>betas</strong> (<em>array of fitted values for the fine tuned mixing. f_ab = beta_00*rep_a+beta_01*rep_b</em>) – f_ba = beta_10*rep_a+beta_11*rep_b</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -447,42 +447,27 @@ has been previously fitted and is parse as <span class="math notranslate nohighl
 <li><p><strong>sources</strong> (<em>string</em>) – Source informations or comment line for the file header</p></li>
 <li><p><strong>parameters_mix</strong> (<em>EAMParameters</em>) – EAM potential parameters</p></li>
 <li><p><strong>F_</strong> (<em>array_like</em>) – contain the tabulated values of the embedded functions
-shape = (nb elements, nb elements, nb of data points)</p></li>
+shape = (nb atoms,nb atoms, nb of data points)</p></li>
 <li><p><strong>f_</strong> (<em>array_like</em>) – contain the tabulated values of the density functions
-shape = (nb elements, nb elements, nb of data points)</p></li>
+shape = (nb atoms,nb atoms, nb of data points)</p></li>
 <li><p><strong>rep_</strong> (<em>array_like</em>) – contain the tabulated values of pair potential
-shape = (nb elements, nb elements, nb of data points)</p></li>
+shape = (nb atoms,nb atoms, nb of data points)</p></li>
 </ul>
 </p>
 </dd>
 </dl>
-<p class="rubric">References</p>
-<ol class="arabic simple">
-<li><ol class="upperalpha simple" start="24">
-<li><ol class="upperalpha simple" start="23">
-<li><p>Zhou, R. A. Johnson, and H. N. G. Wadley, Phys. Rev. B, 69, 144113 (2004)</p></li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
 </dd></dl>
 
 <dl class="py function">
 <dt id="matscipy.calculators.eam.io.read_eam">
 <code class="sig-prename descclassname">matscipy.calculators.eam.io.</code><code class="sig-name descname">read_eam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">eam_file</span></em>, <em class="sig-param"><span class="n">kind</span><span class="o">=</span><span class="default_value">'eam/alloy'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.eam.io.read_eam" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read a tabulated EAM potential</p>
-<p>There are differnt flavors of EAM, with different storage
-formats. This function supports a subset of the formats supported
-by Lammps (<a class="reference external" href="http://lammps.sandia.gov/doc/pair_eam.html">http://lammps.sandia.gov/doc/pair_eam.html</a>),
-* eam (DYNAMO funcfl format)
-* eam/alloy (DYNAMO setfl format)
-* eam/fs (DYNAMO setfl format)</p>
+<dd><p>Read an eam alloy lammps format file and return the tabulated data and parameters
+<a class="reference external" href="http://lammps.sandia.gov/doc/pair_eam.html">http://lammps.sandia.gov/doc/pair_eam.html</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>eam_file</strong> (<em>string</em>) – eam alloy file name</p></li>
-<li><p><strong>kind</strong> (<em>{'eam'</em><em>, </em><em>'eam/alloy'</em><em>, </em><em>'eam/fs'}</em>) – kind of EAM file to read</p></li>
+<li><p><strong>kind</strong> (<em>string</em>) – kind of EAM file to read (supported eam,eam/alloy,eam/fs)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -490,11 +475,11 @@ by Lammps (<a class="reference external" href="http://lammps.sandia.gov/doc/pair
 <li><p><strong>source</strong> (<em>string</em>) – Source informations or comment line for the file header</p></li>
 <li><p><strong>parameters</strong> (<em>EAMParameters</em>) – EAM potential parameters</p></li>
 <li><p><strong>F</strong> (<em>array_like</em>) – contain the tabulated values of the embedded functions
-shape = (nb elements, nb of data points)</p></li>
+shape = (nb atoms, nb of data points)</p></li>
 <li><p><strong>f</strong> (<em>array_like</em>) – contain the tabulated values of the density functions
-shape = (nb elements, nb of data points)</p></li>
+shape = (nb atoms, nb of data points)</p></li>
 <li><p><strong>rep</strong> (<em>array_like</em>) – contain the tabulated values of pair potential
-shape = (nb elements,nb elements, nb of data points)</p></li>
+shape = (nb atoms,nb atoms, nb of data points)</p></li>
 </ul>
 </p>
 </dd>
@@ -504,13 +489,8 @@ shape = (nb elements,nb elements, nb of data points)</p></li>
 <dl class="py function">
 <dt id="matscipy.calculators.eam.io.write_eam">
 <code class="sig-prename descclassname">matscipy.calculators.eam.io.</code><code class="sig-name descname">write_eam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span></em>, <em class="sig-param"><span class="n">parameters</span></em>, <em class="sig-param"><span class="n">F</span></em>, <em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="n">rep</span></em>, <em class="sig-param"><span class="n">out_file</span></em>, <em class="sig-param"><span class="n">kind</span><span class="o">=</span><span class="default_value">'eam'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.eam.io.write_eam" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write an eam lammps format file</p>
-<p>There are differnt flavors of EAM, with different storage
-formats. This function supports a subset of the formats supported
-by Lammps (<a class="reference external" href="http://lammps.sandia.gov/doc/pair_eam.html">http://lammps.sandia.gov/doc/pair_eam.html</a>),
-* eam (DYNAMO funcfl format)
-* eam/alloy (DYNAMO setfl format)
-* eam/fs (DYNAMO setfl format)</p>
+<dd><p>Write an eam lammps format file
+<a class="reference external" href="http://lammps.sandia.gov/doc/pair_eam.html">http://lammps.sandia.gov/doc/pair_eam.html</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -523,14 +503,7 @@ shape = (nb of data points)</p></li>
 <li><p><strong>rep</strong> (<em>array_like</em>) – contain the tabulated values of pair potential
 shape = (nb of data points)</p></li>
 <li><p><strong>out_file</strong> (<em>string</em>) – output file name for the eam alloy potential file</p></li>
-<li><p><strong>kind</strong> (<em>{'eam'</em><em>, </em><em>'eam/alloy'</em><em>, </em><em>'eam/fs'}</em>) – kind of EAM file to read</p></li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>None</p>
 </dd>
 </dl>
 </dd></dl>
