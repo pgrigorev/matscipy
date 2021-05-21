@@ -239,7 +239,7 @@ class TestDislocation(matscipytest.MatSciPyTestCase):
 
     @unittest.skipIf("atomman" not in sys.modules, 'requires Stroh solution from atomman to run')
     def test_stroh_solution(self):
-        """Builds isotropic Stroh solution and compares it to Volterra solution"""
+        """Builds isotropic Stroh solution and compars it to Volterra solution"""
 
         alat = 3.14
         C11 = 523.0
@@ -445,19 +445,22 @@ class TestDislocation(matscipytest.MatSciPyTestCase):
                           burgers=(1.0 / 2.0) * np.array([1.0, 0.0, 1.0]))
 
     def check_glide_configs(self, cls, structure="BCC"):
-        alat = 3.14339177996466
+        alat = 3.18556
         C11 = 523.0266819809012
         C12 = 202.1786296941397
         C44 = 160.88179872237012
 
         d = cls(alat, C11, C12, C44)
-        bulk, disloc_ini, disloc_fin = d.build_glide_configurations(radius=40)
+        bulk, disloc_ini, disloc_fin = d.build_glide_configurations(radius=85)
 
         assert len(bulk) == len(disloc_ini)
         assert len(disloc_ini) == len(disloc_fin)
 
         assert all(disloc_ini.get_array("fix_mask") ==
                    disloc_fin.get_array("fix_mask"))
+
+        np.testing.assert_array_almost_equal(disloc_ini.cell, disloc_fin.cell)
+        np.testing.assert_array_almost_equal(disloc_ini.cell, bulk.cell)
 
         results = sd.ovito_dxa_straight_dislo_info(disloc_ini,
                                                    structure=structure)
@@ -607,6 +610,58 @@ class TestDislocation(matscipytest.MatSciPyTestCase):
 
         np.testing.assert_almost_equal(E, target_E, decimal=3)
         np.testing.assert_almost_equal(shift, target_shift, decimal=3)
+
+
+    def check_double_kink(self, dislocation):
+
+        """Test the total number of atoms and number of fixed atoms
+        in the cylinder double kink configuration"""
+
+        alat = 3.14339177996466
+        C11 = 523.0266819809012
+        C12 = 202.1786296941397
+        C44 = 160.88179872237012
+
+        cylinder_r = 40
+        kink_length = 26
+
+        dislo = dislocation(alat, C11, C12, C44,)
+
+        kink, large_disloc, straight_bulk = dislo.build_double_kink(kink_length=kink_length,
+                                                                    radius=cylinder_r)
+
+        # check the total number of atoms as compared to make_screw_cyl()
+        _, disloc, _ = dislo.build_glide_configurations(radius=cylinder_r)
+
+        self.assertEqual(len(kink), len(disloc) * 2 * kink_length)
+
+        kink_fixed_atoms = kink.constraints[0].get_indices()
+        reference_fixed_atoms = kink.constraints[0].get_indices()
+
+        # check that the same number of atoms is fixed
+        self.assertEqual(len(kink_fixed_atoms), len(reference_fixed_atoms))
+        # check that the fixed atoms are the same and with same positions
+        self.assertArrayAlmostEqual(kink_fixed_atoms, reference_fixed_atoms)
+        self.assertArrayAlmostEqual(kink.positions[kink_fixed_atoms],
+                                    large_disloc.positions[
+                                    reference_fixed_atoms])
+
+
+    @unittest.skipIf("atomman" not in sys.modules,
+                     'requires Stroh solution from atomman to run')
+    def test_build_double_kink(self):
+        dislocations = [sd.BCCScrew111Dislocation,
+                        sd.BCCMixed111Dislocation,
+                        sd.BCCEdge111Dislocation,
+                        sd.BCCEdge100Dislocation,
+                        sd.BCCEdge100110Dislocation,
+                        sd.DiamondGlide30degreePartial,
+                        sd.DiamondGlide60Degree,
+                        sd.DiamondGlideScrew,
+                        sd.DiamondGlide90degreePartial]
+
+        for dislocation in dislocations:
+            self.check_double_kink(dislocation)
 
 if __name__ == '__main__':
     unittest.main()
