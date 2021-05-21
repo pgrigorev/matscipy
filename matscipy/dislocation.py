@@ -825,7 +825,7 @@ def compare_configurations(dislo, bulk, dislo_ref, bulk_ref,
     print_info : bool
         Flag to switch print statement about the type of the comparison
     remap: bool
-        Flag to swtich off remapping of atoms between deformed and reference
+        Flag to switch off remapping of atoms between deformed and reference
         configurations. Only set this to true if atom order is the same!
     bulk_neighbours:
         Optionally pass in bulk neighbours as a tuple (bulk_i, bulk_j)
@@ -982,7 +982,7 @@ def fit_core_position(dislo_image, bulk, elastic_param, hard_core=False,
     current_pos: array-like
         array [core_x, core_y] containing initial guess for core position
     bulk_neighbours: tuple
-        cache of bulk neigbbours to speed up calcualtion. Should be a
+        cache of bulk neigbbours to speed up calculation. Should be a
         tuple (bulk_I, bulk_J) as returned by
         `matscipy.neigbbours.neighbour_list('ij', bulk, alat)`.
     origin: tuple
@@ -2327,7 +2327,7 @@ class CubicCrystalDislocation:
         return bulk, disloc
 
     def build_glide_configurations(self, radius,
-                                   average_positions=False, **kwargs):
+                                   average_fixed_positions=False, **kwargs):
 
         final_core_position = np.array([self.glide_distance, 0.0, 0.0])
 
@@ -2338,7 +2338,7 @@ class CubicCrystalDislocation:
         _, disloc_fin = self.build_cylinder(radius,
                                             core_position=final_core_position,
                                             **kwargs)
-        if average_positions:
+        if average_fixed_positions:
             # get the fixed atoms constrain
             FixAtoms = disloc_ini.constraints[0]
             # get the indices of fixed atoms
@@ -2363,7 +2363,72 @@ class CubicCrystalDislocation:
         disloc_ini.set_cell(averaged_cell)
         disloc_fin.set_cell(averaged_cell)
 
+        bulk_ini.set_cell(averaged_cell)
+
         return bulk_ini, disloc_ini, disloc_fin
+
+
+    def build_double_kink(self, kink_length, radius=None, start_configs=None):
+        """Function to create double kink configuration based on
+        build_glide_configurations() function.
+
+        Parameters
+        ----------
+        kink_length : int
+            Length of the cell per kink along b in unit of b, must be even.
+        radius : float
+            radius of cylinder of unconstrained atoms around the
+            dislocation  in angstrom
+        start_configs : list
+            List of configurations for building the kink:
+            [bulk_ini, disloc_ini, disloc_fin]
+
+        Returns
+        -------
+        kink : ase.atoms
+            kink configuration
+        reference_straight_disloc : ase.atoms
+            reference straight dislocation configuration
+        large_bulk : ase.atoms
+            large bulk cell corresponding to the kink configuration
+        """
+
+        if radius is None and start_configs is None:
+            raise RuntimeError("Please provide radius or start_configs")
+        elif radius is not None:
+             bulk_ini, \
+             disloc_ini, \
+             disloc_fin = self.build_glide_configurations(radius,
+                                                           average_fixed_positions=True)
+        elif start_configs is not None:
+            bulk_ini, disloc_ini, disloc_fin = start_configs
+
+        large_bulk = bulk_ini * [1, 1, 2 * kink_length]
+        reference_straight_disloc = disloc_ini * [1, 1, 2 * kink_length]
+
+        if kink_length % 2:
+            print("WARNING: length is not even!")
+
+        kink = disloc_ini * [1, 1, kink_length // 2]
+        middle_kink = disloc_fin * [1, 1, kink_length]
+
+        middle_kink.positions += np.array((0.0, 0.0, kink.get_cell()[2][2]))
+
+        kink.constraints[0].index = np.append(kink.constraints[0].index,
+                                              middle_kink.constraints[0].get_indices() + len(kink))
+        kink.extend(middle_kink)
+        kink.cell[2][2] += middle_kink.cell[2][2]
+
+        upper_kink = disloc_ini * [1, 1, kink_length // 2]
+        upper_kink.positions += np.array((0.0, 0.0, kink.get_cell()[2][2]))
+
+        kink.constraints[0].index = np.append(kink.constraints[0].index,
+                                              upper_kink.constraints[0].get_indices() + len(kink))
+        kink.extend(upper_kink)
+        kink.cell[2][2] += upper_kink.cell[2][2]
+
+        return kink, reference_straight_disloc, large_bulk
+
 
     def build_impurity_cylinder(self, disloc, impurity, radius,
                                 imp_symbol="H",
