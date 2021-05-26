@@ -627,8 +627,10 @@ class TestDislocation(matscipytest.MatSciPyTestCase):
 
         dislo = dislocation(alat, C11, C12, C44,)
 
-        kink, large_disloc, straight_bulk = dislo.build_double_kink(kink_length=kink_length,
-                                                                    radius=cylinder_r)
+        (kink,
+         large_disloc_ini, large_disloc_fin,
+         straight_bulk) = dislo.build_double_kink(kink_length=kink_length,
+                                                  radius=cylinder_r)
 
         # check the total number of atoms as compared to make_screw_cyl()
         _, disloc, _ = dislo.build_glide_configurations(radius=cylinder_r)
@@ -643,7 +645,7 @@ class TestDislocation(matscipytest.MatSciPyTestCase):
         # check that the fixed atoms are the same and with same positions
         self.assertArrayAlmostEqual(kink_fixed_atoms, reference_fixed_atoms)
         self.assertArrayAlmostEqual(kink.positions[kink_fixed_atoms],
-                                    large_disloc.positions[
+                                    large_disloc_ini.positions[
                                     reference_fixed_atoms])
 
 

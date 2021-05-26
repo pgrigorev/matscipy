@@ -2387,8 +2387,10 @@ class CubicCrystalDislocation:
         -------
         kink : ase.atoms
             kink configuration
-        reference_straight_disloc : ase.atoms
-            reference straight dislocation configuration
+        reference_straight_disloc_ini : ase.atoms
+            reference straight dislocation initial configuration
+        reference_straight_disloc_fin : ase.atoms
+            reference straight dislocation final configuration
         large_bulk : ase.atoms
             large bulk cell corresponding to the kink configuration
         """
@@ -2404,7 +2406,8 @@ class CubicCrystalDislocation:
             bulk_ini, disloc_ini, disloc_fin = start_configs
 
         large_bulk = bulk_ini * [1, 1, 2 * kink_length]
-        reference_straight_disloc = disloc_ini * [1, 1, 2 * kink_length]
+        reference_straight_disloc_ini = disloc_ini * [1, 1, 2 * kink_length]
+        reference_straight_disloc_fin = disloc_fin * [1, 1, 2 * kink_length]
 
         if kink_length % 2:
             print("WARNING: length is not even!")
@@ -2427,7 +2430,7 @@ class CubicCrystalDislocation:
         kink.extend(upper_kink)
         kink.cell[2][2] += upper_kink.cell[2][2]
 
-        return kink, reference_straight_disloc, large_bulk
+        return kink, reference_straight_disloc_ini, reference_straight_disloc_fin, large_bulk
 
 
     def build_impurity_cylinder(self, disloc, impurity, radius,
