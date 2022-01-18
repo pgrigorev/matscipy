@@ -276,7 +276,7 @@ def make_edge_cyl(alat, C11, C12, C44,
 
 
 def plot_vitek(dislo, bulk,
-               alat=3.16, plot_axes=None, xyscale=10):
+               alat=3.16, plot_axes=None, xyscale=10, **kwargs):
     """Plots vitek map from ase configurations.
 
     Parameters
@@ -296,7 +296,9 @@ def plot_vitek(dislo, bulk,
         Description of parameter `plot_axes`.
     xyscale : float
         xyscale of the graph
-
+    **kwargs :
+        Keyword arguments to pass to
+        differential_displacement() function from atomman
     Returns
     -------
     None
@@ -332,7 +334,8 @@ def plot_vitek(dislo, bulk,
                                     ylim=plot_range[1],
                                     zlim=plot_range[2],
                                     matplotlib_axes=plot_axes,
-                                    plot_scale=plot_scale)
+                                    plot_scale=plot_scale,
+                                    **kwargs)
 
 def show_NEB_configurations(images, bulk, xyscale=7,
                             show=True, core_positions=None):
@@ -569,7 +572,8 @@ def make_barrier_configurations(elastic_param=None,
     return disloc_ini, disloc_fin, bulk_ini
 
 def make_screw_cyl_kink(alat, C11, C12, C44,
-                        cylinder_r=40, kink_length=26, kind="double", **kwargs):
+                        cylinder_r=40, kink_length=26,
+                        kind="double", shift=0, **kwargs):
     """Function to create kink configuration based on make_screw_cyl() function.
         Double kink configuration is in agreement with quadrupoles in terms of formation energy.
         Single kink configurations provide correct and stable structure, but formation energy is not accessible?
@@ -617,7 +621,7 @@ def make_screw_cyl_kink(alat, C11, C12, C44,
         if kink_length % 2:
             print("WARNING: length is not even!")
 
-        kink = disloc_ini * [1, 1, kink_length // 2]
+        kink = disloc_ini * [1, 1, kink_length // 2 + shift]
         middle_kink = disloc_fin * [1, 1, kink_length]
 
         middle_kink.positions += np.array((0.0, 0.0, kink.get_cell()[2][2]))
@@ -627,7 +631,7 @@ def make_screw_cyl_kink(alat, C11, C12, C44,
         kink.extend(middle_kink)
         kink.cell[2][2] += middle_kink.cell[2][2]
 
-        upper_kink = disloc_ini * [1, 1, kink_length // 2]
+        upper_kink = disloc_ini * [1, 1, kink_length // 2 - shift]
         upper_kink.positions += np.array((0.0, 0.0, kink.get_cell()[2][2]))
 
         kink.constraints[0].index = np.append(kink.constraints[0].index,
@@ -640,8 +644,8 @@ def make_screw_cyl_kink(alat, C11, C12, C44,
         large_bulk = bulk_ini * [1, 1, kink_length]
         reference_straight_disloc = disloc_ini * [1, 1, kink_length]
 
-        kink = disloc_ini * [1, 1, kink_length // 2]
-        upper_disloc = disloc_fin * [1, 1, kink_length // 2]
+        kink = disloc_ini * [1, 1, kink_length // 2 + shift]
+        upper_disloc = disloc_fin * [1, 1, kink_length // 2 - shift]
 
         upper_disloc.positions += np.array((0.0, 0.0, kink.cell[2][2]))
 
@@ -656,7 +660,8 @@ def make_screw_cyl_kink(alat, C11, C12, C44,
         right_kink_mask = z < large_bulk.cell[2][2] - 2.0 * b / 3 - 0.01
 
         kink = kink[right_kink_mask]
-
+        fix_atoms = FixAtoms(mask=kink.get_array("region") == "fixed")
+        kink.set_constraint(fix_atoms)
         cell = kink.cell.copy()
 
         # right kink is created when the kink vector is in positive x direction
@@ -677,22 +682,23 @@ def make_screw_cyl_kink(alat, C11, C12, C44,
         large_bulk = bulk_ini * [1, 1, kink_length]
         reference_straight_disloc = disloc_ini * [1, 1, kink_length]
 
-        kink = disloc_fin * [1, 1, kink_length // 2]
+        kink = disloc_fin * [1, 1, kink_length // 2 + shift]
+        upper_disloc = disloc_ini * [1, 1, kink_length // 2 - shift]
 
-        upper_disloc = disloc_ini * [1, 1, kink_length // 2]
         upper_disloc.positions += np.array((0.0, 0.0, kink.cell[2][2]))
 
         kink.extend(upper_disloc)
         kink.constraints[0].index = np.append(kink.constraints[0].index,
                                               upper_disloc.constraints[0].get_indices() + len(kink))
         kink.cell[2][2] += upper_disloc.cell[2][2]
-
         # we have to adjust the cell to make the kink vector periodic
         # here we remove one atomic row. it is nicely explained in the paper
         _, _, z = large_bulk.positions.T
         left_kink_mask = z < large_bulk.cell[2][2] - 1.0 * b / 3 - 0.01
 
         kink = kink[left_kink_mask]
+        fix_atoms = FixAtoms(mask=kink.get_array("region") == "fixed")
+        kink.set_constraint(fix_atoms)
 
         cell = kink.cell.copy()
 
@@ -706,6 +712,7 @@ def make_screw_cyl_kink(alat, C11, C12, C44,
         large_bulk.cell[2][0] -= cent_x
         large_bulk.cell[2][2] -= 1.0 * b / 3.0
         large_bulk = large_bulk[left_kink_mask]
+
         for constraint in kink.constraints:
             large_bulk.set_constraint(constraint)
 
