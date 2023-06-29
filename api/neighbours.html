@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neighbour lists &mdash; matscipy devel documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Numerical" href="numerical.html" />
+    <link rel="prev" title="Elasticity" href="elasticity.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            matscipy
+          </a>
+              <div class="version">
+                devel
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../calculators.html">Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fracture_mechanics.html">Fracture Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plasticity.html">Plasticity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elastic_constants.html">Elastic Constants</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="root.html">Matscipy root</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculators.html">Calculators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elasticity.html">Elasticity</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Neighbour lists</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#matscipy.neighbours.Neighbourhood"><code class="docutils literal notranslate"><span class="pre">Neighbourhood</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.Neighbourhood.__init__"><code class="docutils literal notranslate"><span class="pre">Neighbourhood.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.Neighbourhood.get_pairs"><code class="docutils literal notranslate"><span class="pre">Neighbourhood.get_pairs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.Neighbourhood.get_triplets"><code class="docutils literal notranslate"><span class="pre">Neighbourhood.get_triplets()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.Neighbourhood.make_result"><code class="docutils literal notranslate"><span class="pre">Neighbourhood.make_result()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.Neighbourhood.compute_distances"><code class="docutils literal notranslate"><span class="pre">Neighbourhood.compute_distances()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.Neighbourhood.connected_triplets"><code class="docutils literal notranslate"><span class="pre">Neighbourhood.connected_triplets()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.Neighbourhood.triplet_to_numbers"><code class="docutils literal notranslate"><span class="pre">Neighbourhood.triplet_to_numbers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.Neighbourhood.find_triplet_types"><code class="docutils literal notranslate"><span class="pre">Neighbourhood.find_triplet_types()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#matscipy.neighbours.CutoffNeighbourhood"><code class="docutils literal notranslate"><span class="pre">CutoffNeighbourhood</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.CutoffNeighbourhood.__init__"><code class="docutils literal notranslate"><span class="pre">CutoffNeighbourhood.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.CutoffNeighbourhood.get_pairs"><code class="docutils literal notranslate"><span class="pre">CutoffNeighbourhood.get_pairs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.CutoffNeighbourhood.get_triplets"><code class="docutils literal notranslate"><span class="pre">CutoffNeighbourhood.get_triplets()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.CutoffNeighbourhood.compute_distances"><code class="docutils literal notranslate"><span class="pre">CutoffNeighbourhood.compute_distances()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.CutoffNeighbourhood.connected_triplets"><code class="docutils literal notranslate"><span class="pre">CutoffNeighbourhood.connected_triplets()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.CutoffNeighbourhood.find_triplet_types"><code class="docutils literal notranslate"><span class="pre">CutoffNeighbourhood.find_triplet_types()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.CutoffNeighbourhood.make_result"><code class="docutils literal notranslate"><span class="pre">CutoffNeighbourhood.make_result()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.CutoffNeighbourhood.triplet_to_numbers"><code class="docutils literal notranslate"><span class="pre">CutoffNeighbourhood.triplet_to_numbers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#matscipy.neighbours.MolecularNeighbourhood"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.MolecularNeighbourhood.__init__"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.MolecularNeighbourhood.molecules"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.molecules</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.MolecularNeighbourhood.pair_type"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.pair_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.MolecularNeighbourhood.triplet_type"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.triplet_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.MolecularNeighbourhood.double_connectivity"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.double_connectivity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.MolecularNeighbourhood.complete_connectivity"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.complete_connectivity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.MolecularNeighbourhood.get_pairs"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.get_pairs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.MolecularNeighbourhood.get_triplets"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.get_triplets()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.MolecularNeighbourhood.find_triplet_types"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.find_triplet_types()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.MolecularNeighbourhood.compute_distances"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.compute_distances()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.MolecularNeighbourhood.connected_triplets"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.connected_triplets()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.MolecularNeighbourhood.make_result"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.make_result()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#matscipy.neighbours.MolecularNeighbourhood.triplet_to_numbers"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.triplet_to_numbers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#matscipy.neighbours.mic"><code class="docutils literal notranslate"><span class="pre">mic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matscipy.neighbours.neighbour_list"><code class="docutils literal notranslate"><span class="pre">neighbour_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matscipy.neighbours.triplet_list"><code class="docutils literal notranslate"><span class="pre">triplet_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matscipy.neighbours.find_indices_of_reversed_pairs"><code class="docutils literal notranslate"><span class="pre">find_indices_of_reversed_pairs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matscipy.neighbours.find_common_neighbours"><code class="docutils literal notranslate"><span class="pre">find_common_neighbours()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="numerical.html">Numerical</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fracture_mechanics.html">Fracture Mechanics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dislocation.html">Dislocation</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">matscipy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api_reference.html">API Reference</a></li>
+      <li class="breadcrumb-item active">Neighbour lists</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/neighbours.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-matscipy.neighbours">
+<span id="neighbour-lists"></span><h1>Neighbour lists<a class="headerlink" href="#module-matscipy.neighbours" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="matscipy.neighbours.Neighbourhood">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.neighbours.</span></span><span class="sig-name descname"><span class="pre">Neighbourhood</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.Neighbourhood" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Abstract class defining a neighbourhood of atoms (pairs, triplets).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.Neighbourhood.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.Neighbourhood.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize with atoms and optional atom types.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.Neighbourhood.get_pairs">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_pairs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.Neighbourhood.get_pairs" title="Permalink to this definition"></a></dt>
+<dd><p>Return requested data on pairs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.Neighbourhood.get_triplets">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_triplets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neighbours</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_connectivity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.Neighbourhood.get_triplets" title="Permalink to this definition"></a></dt>
+<dd><p>Return requested data on triplets.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.Neighbourhood.make_result">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">make_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quantities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connectivity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accepted_quantities</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="headerlink" href="#matscipy.neighbours.Neighbourhood.make_result" title="Permalink to this definition"></a></dt>
+<dd><p>Construct result list.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.Neighbourhood.compute_distances">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">compute_distances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connectivity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#matscipy.neighbours.Neighbourhood.compute_distances" title="Permalink to this definition"></a></dt>
+<dd><p>Return distances and vectors for connectivity.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.Neighbourhood.connected_triplets">
+<span class="sig-name descname"><span class="pre">connected_triplets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pair_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">triplet_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_pairs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.Neighbourhood.connected_triplets" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.Neighbourhood.triplet_to_numbers">
+<span class="sig-name descname"><span class="pre">triplet_to_numbers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.Neighbourhood.triplet_to_numbers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.Neighbourhood.find_triplet_types">
+<span class="sig-name descname"><span class="pre">find_triplet_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.Neighbourhood.find_triplet_types" title="Permalink to this definition"></a></dt>
+<dd><p>Return triplet types from atom ids.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="matscipy.neighbours.CutoffNeighbourhood">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.neighbours.</span></span><span class="sig-name descname"><span class="pre">CutoffNeighbourhood</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pair_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">triplet_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.CutoffNeighbourhood" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../matscipy.html#matscipy.neighbours.Neighbourhood" title="matscipy.neighbours.Neighbourhood"><code class="xref py py-class docutils literal notranslate"><span class="pre">Neighbourhood</span></code></a></p>
+<p>Class defining neighbourhood based on proximity.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.CutoffNeighbourhood.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pair_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">triplet_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.CutoffNeighbourhood.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize with atoms, atom types, pair types and cutoff.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atom_types</strong> (<em>ArrayLike</em>) – atom types array</p></li>
+<li><p><strong>pair_types</strong> (<em>function</em><em> of </em><em>2 atom type arrays</em>) – maps 2 atom types array to an array of pair types</p></li>
+<li><p><strong>cutoff</strong> (<em>float</em><em> or </em><em>dict</em>) – <dl>
+<dt>Cutoff for neighbor search. It can be</dt><dd><ul>
+<li><p>A single float: This is a global cutoff for all elements.</p></li>
+<li><p>A dictionary: This specifies cutoff values for element</p></li>
+</ul>
+<p>pairs. Specification accepts element numbers of symbols.
+Example: {(1, 6): 1.1, (1, 1): 1.0, (‘C’, ‘C’): 1.85}
+- A list/array with a per atom value: This specifies the radius
+of an atomic sphere for each atoms. If spheres overlap, atoms
+are within each others neighborhood.</p>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.CutoffNeighbourhood.get_pairs">
+<span class="sig-name descname"><span class="pre">get_pairs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.CutoffNeighbourhood.get_pairs" title="Permalink to this definition"></a></dt>
+<dd><p>Return pairs and quantities from conventional neighbour list.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.CutoffNeighbourhood.get_triplets">
+<span class="sig-name descname"><span class="pre">get_triplets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neighbours</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.CutoffNeighbourhood.get_triplets" title="Permalink to this definition"></a></dt>
+<dd><p>Return triplets and quantities from conventional neighbour list.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.CutoffNeighbourhood.compute_distances">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">compute_distances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connectivity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#matscipy.neighbours.CutoffNeighbourhood.compute_distances" title="Permalink to this definition"></a></dt>
+<dd><p>Return distances and vectors for connectivity.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.CutoffNeighbourhood.connected_triplets">
+<span class="sig-name descname"><span class="pre">connected_triplets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pair_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">triplet_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_pairs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.CutoffNeighbourhood.connected_triplets" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.CutoffNeighbourhood.find_triplet_types">
+<span class="sig-name descname"><span class="pre">find_triplet_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.CutoffNeighbourhood.find_triplet_types" title="Permalink to this definition"></a></dt>
+<dd><p>Return triplet types from atom ids.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.CutoffNeighbourhood.make_result">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">make_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quantities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connectivity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accepted_quantities</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="headerlink" href="#matscipy.neighbours.CutoffNeighbourhood.make_result" title="Permalink to this definition"></a></dt>
+<dd><p>Construct result list.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.CutoffNeighbourhood.triplet_to_numbers">
+<span class="sig-name descname"><span class="pre">triplet_to_numbers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.CutoffNeighbourhood.triplet_to_numbers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="matscipy.neighbours.MolecularNeighbourhood">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.neighbours.</span></span><span class="sig-name descname"><span class="pre">MolecularNeighbourhood</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">molecules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Molecules</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.MolecularNeighbourhood" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../matscipy.html#matscipy.neighbours.Neighbourhood" title="matscipy.neighbours.Neighbourhood"><code class="xref py py-class docutils literal notranslate"><span class="pre">Neighbourhood</span></code></a></p>
+<p>Class defining neighbourhood based on molecular connectivity.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.MolecularNeighbourhood.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">molecules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Molecules</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.MolecularNeighbourhood.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialze with atoms and molecules.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="matscipy.neighbours.MolecularNeighbourhood.molecules">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">molecules</span></span><a class="headerlink" href="#matscipy.neighbours.MolecularNeighbourhood.molecules" title="Permalink to this definition"></a></dt>
+<dd><p>Molecules instance that defines neighbourhood.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="matscipy.neighbours.MolecularNeighbourhood.pair_type">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pair_type</span></span><a class="headerlink" href="#matscipy.neighbours.MolecularNeighbourhood.pair_type" title="Permalink to this definition"></a></dt>
+<dd><p>Map atom types to pair types.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="matscipy.neighbours.MolecularNeighbourhood.triplet_type">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">triplet_type</span></span><a class="headerlink" href="#matscipy.neighbours.MolecularNeighbourhood.triplet_type" title="Permalink to this definition"></a></dt>
+<dd><p>Map atom types to triplet types.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.MolecularNeighbourhood.double_connectivity">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">double_connectivity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connectivity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#matscipy.neighbours.MolecularNeighbourhood.double_connectivity" title="Permalink to this definition"></a></dt>
+<dd><p>Sort and stack connectivity + reverse connectivity.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.MolecularNeighbourhood.complete_connectivity">
+<span class="sig-name descname"><span class="pre">complete_connectivity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typeoffset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.MolecularNeighbourhood.complete_connectivity" title="Permalink to this definition"></a></dt>
+<dd><p>Add angles to pair connectivity.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.MolecularNeighbourhood.get_pairs">
+<span class="sig-name descname"><span class="pre">get_pairs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.MolecularNeighbourhood.get_pairs" title="Permalink to this definition"></a></dt>
+<dd><p>Return pairs and quantities from connectivities.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.MolecularNeighbourhood.get_triplets">
+<span class="sig-name descname"><span class="pre">get_triplets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neighbours</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.MolecularNeighbourhood.get_triplets" title="Permalink to this definition"></a></dt>
+<dd><p>Return triplets and quantities from connectivities.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.MolecularNeighbourhood.find_triplet_types">
+<span class="sig-name descname"><span class="pre">find_triplet_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.MolecularNeighbourhood.find_triplet_types" title="Permalink to this definition"></a></dt>
+<dd><p>Return triplet types from atom ids.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.MolecularNeighbourhood.compute_distances">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">compute_distances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connectivity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#matscipy.neighbours.MolecularNeighbourhood.compute_distances" title="Permalink to this definition"></a></dt>
+<dd><p>Return distances and vectors for connectivity.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.MolecularNeighbourhood.connected_triplets">
+<span class="sig-name descname"><span class="pre">connected_triplets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pair_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">triplet_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_pairs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.MolecularNeighbourhood.connected_triplets" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.MolecularNeighbourhood.make_result">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">make_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quantities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connectivity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accepted_quantities</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="headerlink" href="#matscipy.neighbours.MolecularNeighbourhood.make_result" title="Permalink to this definition"></a></dt>
+<dd><p>Construct result list.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.neighbours.MolecularNeighbourhood.triplet_to_numbers">
+<span class="sig-name descname"><span class="pre">triplet_to_numbers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.MolecularNeighbourhood.triplet_to_numbers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.neighbours.mic">
+<span class="sig-prename descclassname"><span class="pre">matscipy.neighbours.</span></span><span class="sig-name descname"><span class="pre">mic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pbc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.mic" title="Permalink to this definition"></a></dt>
+<dd><p>Apply minimum image convention to an array of distance vectors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dr</strong> (<em>array_like</em>) – Array of distance vectors.</p></li>
+<li><p><strong>cell</strong> (<em>array_like</em>) – Simulation cell.</p></li>
+<li><p><strong>pbc</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Periodic boundary conditions in x-, y- and z-direction. Default is to
+assume periodic boundaries in all directions.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>dr</strong> – Array of distance vectors, wrapped according to the minimum image
+convention.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.neighbours.neighbour_list">
+<span class="sig-prename descclassname"><span class="pre">matscipy.neighbours.</span></span><span class="sig-name descname"><span class="pre">neighbour_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quantities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">positions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pbc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numbers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.neighbour_list" title="Permalink to this definition"></a></dt>
+<dd><blockquote>
+<div><blockquote>
+<div><p>Compute a neighbor list for an atomic configuration. Atoms outside periodic
+boundaries are mapped into the box. Atoms outside nonperiodic boundaries
+are included in the neighbor list but the complexity of neighbor list search
+for those can become n^2.</p>
+<p>The neighbor list is sorted by first atom index ‘i’, but not by second
+atom index ‘j’.</p>
+<p>The neighbour list accepts either an ASE Atoms object or positions and cell
+vectors individually.</p>
+<dl>
+<dt>quantities<span class="classifier">str</span></dt><dd><p>Quantities to compute by the neighbor list algorithm. Each character
+in this string defines a quantity. They are returned in a tuple of
+the same order. Possible quantities are</p>
+<blockquote>
+<div><p>‘i’ : first atom index
+‘j’ : second atom index
+‘d’ : absolute distance
+‘D’ : distance vector
+‘S’ : shift vector (number of cell boundaries crossed by the bond</p>
+<blockquote>
+<div><p>between atom i and j). With the shift vector S, the
+distances D between atoms can be computed from:
+D = a.positions[j]-a.positions[i]+S.dot(a.cell)</p>
+</div></blockquote>
+</div></blockquote>
+</dd>
+<dt>atoms<span class="classifier">ase.Atoms</span></dt><dd><p>Atomic configuration. (Default: None)</p>
+</dd>
+<dt>cutoff<span class="classifier">float or dict</span></dt><dd><dl class="simple">
+<dt>Cutoff for neighbor search. It can be</dt><dd><ul class="simple">
+<li><p>A single float: This is a global cutoff for all elements.</p></li>
+<li><p>A dictionary: This specifies cutoff values for element
+pairs. Specification accepts element numbers of symbols.
+Example: {(1, 6): 1.1, (1, 1): 1.0, (‘C’, ‘C’): 1.85}</p></li>
+<li><p>A list/array with a per atom value: This specifies the radius of
+an atomic sphere for each atoms. If spheres overlap, atoms are
+within each others neighborhood.</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>positions<span class="classifier">array_like</span></dt><dd><p>Atomic positions. (Default: None)</p>
+</dd>
+<dt>cell<span class="classifier">array_like</span></dt><dd><p>Cell vectors as a 3x3 matrix. (Default: Shrink wrapped cell)</p>
+</dd>
+<dt>pbc<span class="classifier">array_like</span></dt><dd><p>3-vector containing periodic boundary conditions in all three
+directions. (Default: Nonperiodic box)</p>
+</dd>
+<dt>numbers<span class="classifier">array_like</span></dt><dd><p>Array containing the atomic numbers.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>i, j, …<span class="classifier">array</span></dt><dd><p>Tuple with arrays for each quantity specified above. Indices in <cite>i</cite>
+are returned in ascending order 0..len(a), but the order of (i,j)
+pairs is not guaranteed.</p>
+</dd>
+</dl>
+<p>Examples assume Atoms object <em>a</em> and numpy imported as <em>np</em>.
+1. Coordination counting:</p>
+<blockquote>
+<div><p>i = neighbor_list(‘i’, a, 1.85)
+coord = np.bincount(i)</p>
+</div></blockquote>
+<ol class="arabic" start="2">
+<li><dl>
+<dt>Coordination counting with different cutoffs for each pair of species</dt><dd><dl class="simple">
+<dt>i = neighbor_list(‘i’, a,</dt><dd><p>{(‘H’, ‘H’): 1.1, (‘C’, ‘H’): 1.3, (‘C’, ‘C’): 1.85})</p>
+</dd>
+</dl>
+<p>coord = np.bincount(i)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Pair distribution function:</dt><dd><p>d = neighbor_list(‘d’, a, 10.00)
+h, bin_edges = np.histogram(d, bins=100)
+pdf = h/(4*np.pi/3*(bin_edges[1:]**3 - bin_edges[:-1]**3)) * a.get_volume()/len(a)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Pair potential:</dt><dd><p>i, j, d, D = neighbor_list(‘ijdD’, a, 5.0)
+energy = (-C/d**6).sum()
+pair_forces = (6*C/d**5  * (D/d).T).T
+forces_x = np.bincount(j, weights=pair_forces[:, 0], minlength=len(a)) -                    np.bincount(i, weights=pair_forces[:, 0], minlength=len(a))
+forces_y = np.bincount(j, weights=pair_forces[:, 1], minlength=len(a)) -                    np.bincount(i, weights=pair_forces[:, 1], minlength=len(a))
+forces_z = np.bincount(j, weights=pair_forces[:, 2], minlength=len(a)) -                    np.bincount(i, weights=pair_forces[:, 2], minlength=len(a))</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Dynamical matrix for a pair potential stored in a block sparse format:</dt><dd><p>from scipy.sparse import bsr_matrix
+i, j, dr, abs_dr = neighbor_list(‘ijDd’, atoms)
+energy = (dr.T / abs_dr).T
+dynmat = -(dde * (energy.reshape(-1, 3, 1) * energy.reshape(-1, 1, 3)).T).T                  -(de / abs_dr * (np.eye(3, dtype=energy.dtype) -                    (energy.reshape(-1, 3, 1) * energy.reshape(-1, 1, 3))).T).T
+dynmat_bsr = bsr_matrix((dynmat, j, first_i), shape=(3*len(a), 3*len(a)))</p>
+<p>dynmat_diag = np.empty((len(a), 3, 3))
+for x in range(3):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>for y in range(3):</dt><dd><p>dynmat_diag[:, x, y] = -np.bincount(i, weights=dynmat[:, x, y])</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl>
+<dt>dynmat_bsr += bsr_matrix((dynmat_diag, np.arange(len(a)),</dt><dd><blockquote>
+<div><p>np.arange(len(a) + 1)),</p>
+</div></blockquote>
+<p>shape=(3 * len(a), 3 * len(a)))</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ol>
+</div></blockquote>
+<p>i_n, j_n, dr_nc, abs_dr_n = neighbour_list(‘ijDd’, atoms, dict)</p>
+</div></blockquote>
+<dl>
+<dt>e_nc = (dr_nc.T/abs_dr_n).T</dt><dd><p>D_ncc = -(dde_n * (e_nc.reshape(-1,3,1) * e_nc.reshape(-1,1,3)).T).T
+D_ncc += -(de_n/abs_dr_n * (np.eye(3, dtype=e_nc.dtype) - (e_nc.reshape(-1,3,1) * e_nc.reshape(-1,1,3))).T).T</p>
+<p>D = bsr_matrix((D_ncc, j_n, first_i), shape=(3*nat,3*nat))</p>
+<p>Ddiag_icc = np.empty((nat,3,3))
+for x in range(3):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>for y in range(3):</dt><dd><p>Ddiag_icc[:,x,y] = -np.bincount(i_n, weights = D_ncc[:,x,y])</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>D += bsr_matrix((Ddiag_icc,np.arange(nat),np.arange(nat+1)), shape=(3*nat,3*nat))</p>
+<p>return D</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.neighbours.triplet_list">
+<span class="sig-prename descclassname"><span class="pre">matscipy.neighbours.</span></span><span class="sig-name descname"><span class="pre">triplet_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first_neighbours</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">abs_dr_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.triplet_list" title="Permalink to this definition"></a></dt>
+<dd><p>Compute a triplet list for an atomic configuration. The triple list is a
+mask that can be applied to the corresponding neighbour list to mask
+triplet properties.
+The triplet list accepts an first_neighbour array (generated by
+first_neighbours) as input.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>first_neighbours</strong> (<em>array</em>) – adresses of the first time an atom occours in the neighour list</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>ij_t, ik_t</strong> (<em>array</em>) – lists of adresses that form triples in the pair lists</p></li>
+<li><p><strong>jk_t</strong> (<em>array (if and only if i_p, j_p, first_i != None)</em>) – list of pairs jk that connect each triplet ij, ik
+between atom j and k</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>i_n, j_n, abs_dr_p = neighbour_list(‘ijd’, atoms=atoms, cutoff=cutoff)</p>
+<p>first_i = np.array([0, 2, 6, 10], dtype=’int32’)
+a = triplet_list(first_i, [2.2]*9+[3.0], 2.6)</p>
+<p># one may obtain first_ij by using
+find_ij = first_neighbours(len(i_p), ij_t)
+# or (slower but less parameters and more general,
+# i.e for every ordered list)
+first_ij = get_jump_indicies(ij_t)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.neighbours.find_indices_of_reversed_pairs">
+<span class="sig-prename descclassname"><span class="pre">matscipy.neighbours.</span></span><span class="sig-name descname"><span class="pre">find_indices_of_reversed_pairs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j_n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">abs_dr_n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.find_indices_of_reversed_pairs" title="Permalink to this definition"></a></dt>
+<dd><p>Find neighbor list indices where reversed pairs are stored</p>
+<p>Given list of identifiers of neighbor atoms <cite>i_n</cite> and <cite>j_n</cite>,
+determines the list of indices <cite>reverse</cite> into the neighbor list
+where each pair is reversed, i.e. <cite>i_n[reverse[n]]=j_n[n]</cite> and
+<cite>j_n[reverse[n]]=i_n[n]</cite> for each index <cite>n</cite> in the neighbor list</p>
+<p>In the case of small periodic systems, one needs to be careful, because
+the same pair may appear more than one time, with different pair
+distances. Therefore, the pair distance must be taken into account.</p>
+<p>We assume that there is in fact one reversed pair for every pair.
+However, we do not check this assumption in order to avoid overhead.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i_n</strong> (<em>array_like</em>) – array of atom identifiers</p></li>
+<li><p><strong>j_n</strong> (<em>array_like</em>) – array of atom identifiers</p></li>
+<li><p><strong>abs_dr_n</strong> (<em>array_like</em>) – pair distances</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>reverse</strong> – array of indices into i_n and j_n</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.neighbours.find_common_neighbours">
+<span class="sig-prename descclassname"><span class="pre">matscipy.neighbours.</span></span><span class="sig-name descname"><span class="pre">find_common_neighbours</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i_n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j_n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nat</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.neighbours.find_common_neighbours" title="Permalink to this definition"></a></dt>
+<dd><p>Find common neighbors of pairs of atoms</p>
+<p>For each pair <code class="docutils literal notranslate"><span class="pre">(i1,</span> <span class="pre">j1)</span></code> in the neighbor list, find all other pairs
+<code class="docutils literal notranslate"><span class="pre">(i2,</span> <span class="pre">j1)</span></code> which share the same <code class="docutils literal notranslate"><span class="pre">j1</span></code>. This includes <code class="docutils literal notranslate"><span class="pre">(i1,j1)</span></code>
+itself. In this way, create a list with <code class="docutils literal notranslate"><span class="pre">n</span></code> blocks of rows, where <code class="docutils literal notranslate"><span class="pre">n</span></code>
+is the length of the neighbor list. All rows in a block have the same
+<code class="docutils literal notranslate"><span class="pre">j1</span></code>. Each row corresponds to one triplet <code class="docutils literal notranslate"><span class="pre">(i1,</span> <span class="pre">j1</span> <span class="pre">,i2)</span></code>. The number
+of rows in the block is equal to the total number of neighbors of <code class="docutils literal notranslate"><span class="pre">j1</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i_n</strong> (<em>array_like</em>) – array of atom identifiers</p></li>
+<li><p><strong>j_n</strong> (<em>array_like</em>) – array of atom identifiers</p></li>
+<li><p><strong>nat</strong> (<em>int</em>) – number of atoms</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>cnl_i1_i2</strong> (<em>array</em>) – atom numbers i1 and i2</p></li>
+<li><p><strong>cnl_j1</strong> (<em>array</em>) – shared neighbor of i1 and i2</p></li>
+<li><p><strong>nl_index_i1_j1</strong> (<em>array</em>) – index in the neighbor list of pair i1, j1</p></li>
+<li><p><strong>nl_index_i2_j1</strong> (<em>array</em>) – index in the neighbor list of pair i2, j1</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Accumulate random numbers for pairs with common neighbors:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matscipy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ase.lattice.cubic</span> <span class="kn">import</span> <span class="n">FaceCenteredCubic</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">matscipy.neighbours</span> <span class="kn">import</span> <span class="n">neighbour_list</span><span class="p">,</span> <span class="n">find_common_neighbours</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cutoff</span> <span class="o">=</span> <span class="mf">6.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atoms</span> <span class="o">=</span> <span class="n">FaceCenteredCubic</span><span class="p">(</span><span class="s1">&#39;Cu&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nat</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">atoms</span><span class="o">.</span><span class="n">numbers</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">nat</span><span class="p">)</span>
+<span class="go">256</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">i_n</span><span class="p">,</span> <span class="n">j_n</span><span class="p">,</span> <span class="n">dr_nc</span><span class="p">,</span> <span class="n">abs_dr_n</span> <span class="o">=</span> <span class="n">neighbour_list</span><span class="p">(</span><span class="s1">&#39;ijDd&#39;</span><span class="p">,</span> <span class="n">atoms</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">i_n</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(22016,)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cnl_i1_i2</span><span class="p">,</span> <span class="n">cnl_j1</span><span class="p">,</span> <span class="n">nl_index_i1_j1</span><span class="p">,</span> <span class="n">nl_index_i2_j1</span> <span class="o">=</span> <span class="n">find_common_neighbours</span><span class="p">(</span><span class="n">i_n</span><span class="p">,</span> <span class="n">j_n</span><span class="p">,</span> <span class="n">nat</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cnl_i1_i2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(1893376, 2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">unique_pairs_i1_i2</span><span class="p">,</span> <span class="n">bincount_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">cnl_i1_i2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">return_inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">unique_pairs_i1_i2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(65536, 2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">cnl_i1_i2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">bincount_bins</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">tmp</span><span class="p">,</span> <span class="n">minlength</span><span class="o">=</span><span class="n">unique_pairs_i1_i2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">my_sum</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(65536,)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="elasticity.html" class="btn btn-neutral float-left" title="Elasticity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="numerical.html" class="btn btn-neutral float-right" title="Numerical" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2015, James Kermode, Lars Pastewka.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

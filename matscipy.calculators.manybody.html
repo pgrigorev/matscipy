@@ -16,6 +16,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -43,15 +44,15 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">matscipy.calculators.manybody package</a><ul>
-<li><a class="reference internal" href="#modules">Modules</a></li>
-<li><a class="reference internal" href="#matscipy-calculators-manybody-explicit-forms">matscipy.calculators.manybody.explicit_forms</a></li>
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="calculators.html">Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fracture_mechanics.html">Fracture Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plasticity.html">Plasticity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elastic_constants.html">Elastic Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a></li>
 </ul>
-</li>
-</ul>
-</div>
+
         </div>
       </div>
     </nav>
@@ -76,17 +77,324 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="matscipy-calculators-manybody-package">
-<h1>matscipy.calculators.manybody package<a class="headerlink" href="#matscipy-calculators-manybody-package" title="Permalink to this heading"></a></h1>
+  <section id="module-matscipy.calculators.manybody">
+<span id="matscipy-calculators-manybody-package"></span><h1>matscipy.calculators.manybody package<a class="headerlink" href="#module-matscipy.calculators.manybody" title="Permalink to this heading"></a></h1>
 <section id="modules">
 <h2>Modules<a class="headerlink" href="#modules" title="Permalink to this heading"></a></h2>
 <table class="autosummary longtable docutils align-default">
 <tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.manybody.explicit_forms</span></code></p></td>
+<td><p></p></td>
+</tr>
 </tbody>
 </table>
 </section>
-<section id="matscipy-calculators-manybody-explicit-forms">
-<h2>matscipy.calculators.manybody.explicit_forms<a class="headerlink" href="#matscipy-calculators-manybody-explicit-forms" title="Permalink to this heading"></a></h2>
+<section id="module-matscipy.calculators.manybody.explicit_forms.harmonic">
+<span id="matscipy-calculators-manybody-explicit-forms"></span><h2>matscipy.calculators.manybody.explicit_forms<a class="headerlink" href="#module-matscipy.calculators.manybody.explicit_forms.harmonic" title="Permalink to this heading"></a></h2>
+<p>Harmonic potentials for bonds and triplets.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.ZeroPair">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.calculators.manybody.explicit_forms.harmonic.</span></span><span class="sig-name descname"><span class="pre">ZeroPair</span></span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.ZeroPair" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">G</span></code></p>
+<p>Defines a non-interacting pair potential.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.ZeroPair.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xi</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.ZeroPair.__call__" title="Permalink to this definition"></a></dt>
+<dd><p>Return triplet energy only.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.ZeroPair.gradient">
+<span class="sig-name descname"><span class="pre">gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xi</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.ZeroPair.gradient" title="Permalink to this definition"></a></dt>
+<dd><p>Return triplet interaction only.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.ZeroPair.hessian">
+<span class="sig-name descname"><span class="pre">hessian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xi</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.ZeroPair.hessian" title="Permalink to this definition"></a></dt>
+<dd><p>Zero hessian.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.ZeroPair.__abstractmethods__">
+<span class="sig-name descname"><span class="pre">__abstractmethods__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">frozenset({})</span></em><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.ZeroPair.__abstractmethods__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.ZeroPair.__annotations__">
+<span class="sig-name descname"><span class="pre">__annotations__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.ZeroPair.__annotations__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.ZeroPair.__dict__">
+<span class="sig-name descname"><span class="pre">__dict__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__module__':</span> <span class="pre">'matscipy.calculators.manybody.explicit_forms.harmonic',</span> <span class="pre">'__doc__':</span> <span class="pre">'Defines</span> <span class="pre">a</span> <span class="pre">non-interacting</span> <span class="pre">pair</span> <span class="pre">potential.',</span> <span class="pre">'__call__':</span> <span class="pre">&lt;function</span> <span class="pre">ZeroPair.__call__&gt;,</span> <span class="pre">'gradient':</span> <span class="pre">&lt;function</span> <span class="pre">ZeroPair.gradient&gt;,</span> <span class="pre">'hessian':</span> <span class="pre">&lt;function</span> <span class="pre">ZeroPair.hessian&gt;,</span> <span class="pre">'__abstractmethods__':</span> <span class="pre">frozenset(),</span> <span class="pre">'_abc_impl':</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;,</span> <span class="pre">'__annotations__':</span> <span class="pre">{}})</span></em><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.ZeroPair.__dict__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.ZeroPair.__module__">
+<span class="sig-name descname"><span class="pre">__module__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'matscipy.calculators.manybody.explicit_forms.harmonic'</span></em><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.ZeroPair.__module__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.ZeroPair.__slots__">
+<span class="sig-name descname"><span class="pre">__slots__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.ZeroPair.__slots__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.ZeroPair.__weakref__">
+<span class="sig-name descname"><span class="pre">__weakref__</span></span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.ZeroPair.__weakref__" title="Permalink to this definition"></a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.ZeroTriplet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.calculators.manybody.explicit_forms.harmonic.</span></span><span class="sig-name descname"><span class="pre">ZeroTriplet</span></span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.ZeroTriplet" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">G</span></code></p>
+<p>Defines a non-interacting triplet potential.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.ZeroTriplet.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.ZeroTriplet.__call__" title="Permalink to this definition"></a></dt>
+<dd><p>Zero triplet energy.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.ZeroTriplet.gradient">
+<span class="sig-name descname"><span class="pre">gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.ZeroTriplet.gradient" title="Permalink to this definition"></a></dt>
+<dd><p>Zero triplet force.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.ZeroTriplet.hessian">
+<span class="sig-name descname"><span class="pre">hessian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.ZeroTriplet.hessian" title="Permalink to this definition"></a></dt>
+<dd><p>Zero triplet hessian.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.ZeroTriplet.__abstractmethods__">
+<span class="sig-name descname"><span class="pre">__abstractmethods__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">frozenset({})</span></em><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.ZeroTriplet.__abstractmethods__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.ZeroTriplet.__annotations__">
+<span class="sig-name descname"><span class="pre">__annotations__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.ZeroTriplet.__annotations__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.ZeroTriplet.__dict__">
+<span class="sig-name descname"><span class="pre">__dict__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__module__':</span> <span class="pre">'matscipy.calculators.manybody.explicit_forms.harmonic',</span> <span class="pre">'__doc__':</span> <span class="pre">'Defines</span> <span class="pre">a</span> <span class="pre">non-interacting</span> <span class="pre">triplet</span> <span class="pre">potential.',</span> <span class="pre">'__call__':</span> <span class="pre">&lt;function</span> <span class="pre">ZeroTriplet.__call__&gt;,</span> <span class="pre">'gradient':</span> <span class="pre">&lt;function</span> <span class="pre">ZeroTriplet.gradient&gt;,</span> <span class="pre">'hessian':</span> <span class="pre">&lt;function</span> <span class="pre">ZeroTriplet.hessian&gt;,</span> <span class="pre">'__abstractmethods__':</span> <span class="pre">frozenset(),</span> <span class="pre">'_abc_impl':</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;,</span> <span class="pre">'__annotations__':</span> <span class="pre">{}})</span></em><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.ZeroTriplet.__dict__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.ZeroTriplet.__module__">
+<span class="sig-name descname"><span class="pre">__module__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'matscipy.calculators.manybody.explicit_forms.harmonic'</span></em><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.ZeroTriplet.__module__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.ZeroTriplet.__slots__">
+<span class="sig-name descname"><span class="pre">__slots__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.ZeroTriplet.__slots__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.ZeroTriplet.__weakref__">
+<span class="sig-name descname"><span class="pre">__weakref__</span></span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.ZeroTriplet.__weakref__" title="Permalink to this definition"></a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.calculators.manybody.explicit_forms.harmonic.</span></span><span class="sig-name descname"><span class="pre">HarmonicBond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">F</span></code></p>
+<p>Defines a harmonic bond.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize with equilibrium distance and stiffness.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ptype</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond.__call__" title="Permalink to this definition"></a></dt>
+<dd><p>Compute spring potential energy.</p>
+<div class="math notranslate nohighlight">
+\[E(r) = \frac{1}{2} k(r - r_0)^2 + \xi\]</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond.gradient">
+<span class="sig-name descname"><span class="pre">gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ptype</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond.gradient" title="Permalink to this definition"></a></dt>
+<dd><p>Compute spring force.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond.hessian">
+<span class="sig-name descname"><span class="pre">hessian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ptype</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond.hessian" title="Permalink to this definition"></a></dt>
+<dd><p>Compute spring stiffness.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond.__abstractmethods__">
+<span class="sig-name descname"><span class="pre">__abstractmethods__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">frozenset({})</span></em><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond.__abstractmethods__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond.__annotations__">
+<span class="sig-name descname"><span class="pre">__annotations__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond.__annotations__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond.__dict__">
+<span class="sig-name descname"><span class="pre">__dict__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__module__':</span> <span class="pre">'matscipy.calculators.manybody.explicit_forms.harmonic',</span> <span class="pre">'__doc__':</span> <span class="pre">'Defines</span> <span class="pre">a</span> <span class="pre">harmonic</span> <span class="pre">bond.',</span> <span class="pre">'__init__':</span> <span class="pre">&lt;function</span> <span class="pre">HarmonicBond.__init__&gt;,</span> <span class="pre">'__call__':</span> <span class="pre">&lt;function</span> <span class="pre">HarmonicBond.__call__&gt;,</span> <span class="pre">'gradient':</span> <span class="pre">&lt;function</span> <span class="pre">HarmonicBond.gradient&gt;,</span> <span class="pre">'hessian':</span> <span class="pre">&lt;function</span> <span class="pre">HarmonicBond.hessian&gt;,</span> <span class="pre">'__abstractmethods__':</span> <span class="pre">frozenset(),</span> <span class="pre">'_abc_impl':</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;,</span> <span class="pre">'__annotations__':</span> <span class="pre">{}})</span></em><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond.__dict__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond.__module__">
+<span class="sig-name descname"><span class="pre">__module__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'matscipy.calculators.manybody.explicit_forms.harmonic'</span></em><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond.__module__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond.__slots__">
+<span class="sig-name descname"><span class="pre">__slots__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond.__slots__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond.__weakref__">
+<span class="sig-name descname"><span class="pre">__weakref__</span></span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicBond.__weakref__" title="Permalink to this definition"></a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">matscipy.calculators.manybody.explicit_forms.harmonic.</span></span><span class="sig-name descname"><span class="pre">HarmonicAngle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">G</span></code></p>
+<p>Defines a harmonic angle potential.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize with equilibrium angle and stiffness.</p>
+<p>Note: atoms are needed because mics are calculated for triplet
+distances. This will be removed once G is redefined to take triplet
+distances instead of vectors.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r_ij_c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_ik_c</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle.__call__" title="Permalink to this definition"></a></dt>
+<dd><p>Angle harmonic energy.</p>
+<p>Define the following functional form for <span class="math notranslate nohighlight">\(G\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}E(a) &amp; = \frac{1}{2} k(a - a_0)^2 \\
+\vec{u} &amp; = \vec{r_{ij}} \\
+\vec{v} &amp; = \vec{r_{ik}} \\
+\vec{w}(\vec{u}, \vec{v}) &amp; = \vec{r_{jk}} = \vec{v} - \vec{u} \\
+f(u, v, w) &amp; = -\frac{u^2 + w^2 - v^2}{2uw} \\
+F(\vec{u}, \vec{v}) &amp; = \frac{\vec{u}\cdot\vec{w}(\vec{u}, \vec{v})}{uw} \\
+                    &amp; = f(u, v, |\vec{w}(\vec{u}, \vec{v})|) \\
+h(x) &amp; = E(\arccos(x)) \\
+G(\vec{u}, \vec{v}) &amp; = h(F(\vec{u}, \vec{v})))\end{split}\]</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle.gradient">
+<span class="sig-name descname"><span class="pre">gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r_ij_c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_ik_c</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle.gradient" title="Permalink to this definition"></a></dt>
+<dd><p>Compute derivatives of <span class="math notranslate nohighlight">\(G\)</span> w/r to <span class="math notranslate nohighlight">\(r_{ij}\)</span> and <span class="math notranslate nohighlight">\(r_{ik}\)</span>.</p>
+<p>We have the following partial derivatives:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{\partial G}{\partial u_i}(\vec{u}, \vec{v}) &amp; = h'(F(\vec{u}, \vec{v})) \frac{\partial F}{\partial u_i}(\vec{u}, \vec{v}) \\
+\frac{\partial G}{\partial v_i}(\vec{u}, \vec{v}) &amp; = h'(F(\vec{u}, \vec{v})) \frac{\partial F}{\partial v_i}(\vec{u}, \vec{v}) \\\end{split}\]</div>
+<p>The partial derivatives of <span class="math notranslate nohighlight">\(F\)</span> are expressed as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{\partial F}{\partial u_i} = U_i &amp; = \frac{\partial f}{\partial u}\frac{\partial u}{\partial u_i} + \frac{\partial f}{\partial w}\frac{\partial w}{\partial u_i}\\
+\frac{\partial F}{\partial v_i} = V_i &amp; = \frac{\partial f}{\partial v}\frac{\partial v}{\partial v_i} + \frac{\partial f}{\partial w}\frac{\partial w}{\partial v_i}\end{split}\]</div>
+<p>We note the normal vectors as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\bar{u}_i &amp; = \frac{u_i}{u}\\
+\bar{v}_i &amp; = \frac{v_i}{v}\\
+\bar{w}_i &amp; = \frac{w_i}{w}\end{split}\]</div>
+<p>So that we can write the following partial derivatives:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{\partial u}{\partial u_i} &amp; = \bar{u}_i\\
+\frac{\partial v}{\partial v_i} &amp; = \bar{v}_i\\
+\frac{\partial w}{\partial u_i} &amp; = -\bar{w}_i\\
+\frac{\partial w}{\partial v_i} &amp; = \bar{w}_i\end{split}\]</div>
+<p>Which gives the final expressions for <span class="math notranslate nohighlight">\(U_i\)</span> and <span class="math notranslate nohighlight">\(V_i\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}U_i &amp;= \frac{\partial f}{\partial u} \bar{u}_i + \frac{\partial f}{\partial w} (-\bar{w}_i)\\
+V_i &amp;= \frac{\partial f}{\partial v} \bar{v}_i + \frac{\partial f}{\partial w} \bar{w}_i\end{split}\]</div>
+<p>The remaining scalar partial derivatives are simple to derive and left
+to the reader :P .</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle.hessian">
+<span class="sig-name descname"><span class="pre">hessian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r_ij_c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_ik_c</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle.hessian" title="Permalink to this definition"></a></dt>
+<dd><p>Compute derivatives of <span class="math notranslate nohighlight">\(G\)</span> w/r to <span class="math notranslate nohighlight">\(r_{ij}\)</span> and <span class="math notranslate nohighlight">\(r_{ik}\)</span>.</p>
+<p>We have the following partial derivatives:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{\partial^2 G}{\partial u_i\partial u_j}(\vec{u}, \vec{v}) &amp; = h''(F) U_i U_j + h'(F)\frac{\partial U_i}{\partial u_j}\\
+\frac{\partial^2 G}{\partial v_i\partial v_j}(\vec{u}, \vec{v}) &amp; = h''(F) V_i V_j + h'(F)\frac{\partial V_i}{\partial v_j}\\
+\frac{\partial^2 G}{\partial u_i\partial v_j}(\vec{u}, \vec{v}) &amp; = h''(F) U_i V_j + h'(F)\frac{\partial U_i}{\partial v_j}\end{split}\]</div>
+<p>The derivatives of <span class="math notranslate nohighlight">\(U_i\)</span> and <span class="math notranslate nohighlight">\(V_i\)</span> need careful treatment:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{\partial U_i}{\partial u_j} = \frac{\partial}{\partial u_j}\left(\frac{\partial f}{\partial u}(u, v, w(\vec{u}, \vec{v}))\right) \frac{\partial u}{\partial u_i} + \frac{\partial f}{\partial u}\frac{\partial^2 u}{\partial u_i\partial u_j} + \frac{\partial}{\partial u_j}\left(\frac{\partial f}{\partial w}(u, v, w(\vec{u}, \vec{v}))\right) \frac{\partial w}{\partial u_i} + \frac{\partial f}{\partial w} \frac{\partial^2 w}{\partial u_i\partial u_j}\\
+\frac{\partial V_i}{\partial v_j} = \frac{\partial}{\partial v_j}\left(\frac{\partial f}{\partial v}(u, v, w(\vec{u}, \vec{v}))\right) \frac{\partial v}{\partial v_i} + \frac{\partial f}{\partial v}\frac{\partial^2 v}{\partial v_i\partial v_j} + \frac{\partial}{\partial v_j}\left(\frac{\partial f}{\partial w}(u, v, w(\vec{u}, \vec{v}))\right) \frac{\partial w}{\partial v_i} + \frac{\partial f}{\partial w} \frac{\partial^2 w}{\partial v_i\partial v_j}\\
+\frac{\partial U_i}{\partial v_j} = \frac{\partial}{\partial v_j}\left(\frac{\partial f}{\partial u}(u, v, w(\vec{u}, \vec{v}))\right) \frac{\partial u}{\partial u_i} + \frac{\partial f}{\partial u}\frac{\partial^2 u}{\partial u_i\partial v_j} + \frac{\partial}{\partial v_j}\left(\frac{\partial f}{\partial w}(u, v, w(\vec{u}, \vec{v}))\right) \frac{\partial w}{\partial u_i} + \frac{\partial f}{\partial w} \frac{\partial^2 w}{\partial u_i\partial v_j}\end{split}\]</div>
+<p>For the simple partial derivatives in the above section, we have:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{\partial^2 u}{\partial u_i\partial u_j} &amp; = \bar{\bar{u}}_{ij} = \frac{\delta_{ij} - \bar{u}_i \bar{u}_j}{u}\\
+\frac{\partial^2 v}{\partial v_i\partial v_j} &amp; = \bar{\bar{u}}_{ij} = \frac{\delta_{ij} - \bar{v}_i \bar{v}_j}{v}\\
+\frac{\partial^2 u}{\partial u_i\partial v_j} &amp; = 0\\
+\frac{\partial^2 w}{\partial u_i\partial u_j} &amp; = \bar{\bar{w}}_{ij} = \frac{\delta_{ij} - \bar{w}_i \bar{w}_j}{w}\\
+\frac{\partial^2 w}{\partial v_i\partial v_j} &amp; = \bar{\bar{w}}_{ij}\\
+\frac{\partial^2 w}{\partial u_i\partial v_j} &amp; = -\bar{\bar{w}}_{ij}\end{split}\]</div>
+<p>For the more complex partial derivatives:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{\partial}{\partial u_j}\left(\frac{\partial f}{\partial u}(u, v, w(\vec{u}, \vec{v}))\right) &amp; = \frac{\partial^2 f}{\partial u^2} \frac{\partial u}{\partial u_j} + \frac{\partial^2 f}{\partial u\partial w}\frac{\partial w}{\partial u_j}\\
+\frac{\partial}{\partial u_j}\left(\frac{\partial f}{\partial w}(u, v, w(\vec{u}, \vec{v}))\right) &amp; = \frac{\partial^2 f}{\partial w\partial u} \frac{\partial u}{\partial u_j} + \frac{\partial^2 f}{\partial w^2}\frac{\partial w}{\partial u_j}\\
+\frac{\partial}{\partial v_j}\left(\frac{\partial f}{\partial v}(u, v, w(\vec{u}, \vec{v}))\right) &amp; = \frac{\partial^2 f}{\partial v^2} \frac{\partial v}{\partial v_j} + \frac{\partial^2 f}{\partial v\partial w}\frac{\partial w}{\partial v_j}\\
+\frac{\partial}{\partial v_j}\left(\frac{\partial f}{\partial w}(u, v, w(\vec{u}, \vec{v}))\right) &amp; = \frac{\partial^2 f}{\partial w\partial v} \frac{\partial v}{\partial v_j} + \frac{\partial^2 f}{\partial w^2}\frac{\partial w}{\partial v_j}\\
+\frac{\partial}{\partial v_j}\left(\frac{\partial f}{\partial u}(u, v, w(\vec{u}, \vec{v}))\right) &amp; = \frac{\partial^2 f}{\partial u\partial v} \frac{\partial v}{\partial v_j} + \frac{\partial^2 f}{\partial u\partial w}\frac{\partial w}{\partial v_j}\\\end{split}\]</div>
+<p>The remaining scalar derivatives are left to the reader.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle.__abstractmethods__">
+<span class="sig-name descname"><span class="pre">__abstractmethods__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">frozenset({})</span></em><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle.__abstractmethods__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle.__annotations__">
+<span class="sig-name descname"><span class="pre">__annotations__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle.__annotations__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle.__dict__">
+<span class="sig-name descname"><span class="pre">__dict__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__module__':</span> <span class="pre">'matscipy.calculators.manybody.explicit_forms.harmonic',</span> <span class="pre">'__doc__':</span> <span class="pre">'Defines</span> <span class="pre">a</span> <span class="pre">harmonic</span> <span class="pre">angle</span> <span class="pre">potential.',</span> <span class="pre">'__init__':</span> <span class="pre">&lt;function</span> <span class="pre">HarmonicAngle.__init__&gt;,</span> <span class="pre">'__call__':</span> <span class="pre">&lt;function</span> <span class="pre">HarmonicAngle.__call__&gt;,</span> <span class="pre">'gradient':</span> <span class="pre">&lt;function</span> <span class="pre">HarmonicAngle.gradient&gt;,</span> <span class="pre">'hessian':</span> <span class="pre">&lt;function</span> <span class="pre">HarmonicAngle.hessian&gt;,</span> <span class="pre">'__abstractmethods__':</span> <span class="pre">frozenset(),</span> <span class="pre">'_abc_impl':</span> <span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;,</span> <span class="pre">'__annotations__':</span> <span class="pre">{}})</span></em><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle.__dict__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle.__module__">
+<span class="sig-name descname"><span class="pre">__module__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'matscipy.calculators.manybody.explicit_forms.harmonic'</span></em><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle.__module__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle.__slots__">
+<span class="sig-name descname"><span class="pre">__slots__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle.__slots__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle.__weakref__">
+<span class="sig-name descname"><span class="pre">__weakref__</span></span><a class="headerlink" href="#matscipy.calculators.manybody.explicit_forms.harmonic.HarmonicAngle.__weakref__" title="Permalink to this definition"></a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 

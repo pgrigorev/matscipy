@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; matscipy devel documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Matscipy root" href="api/root.html" />
+    <link rel="prev" title="Elastic Constants" href="elastic_constants.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            matscipy
+          </a>
+              <div class="version">
+                devel
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="calculators.html">Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fracture_mechanics.html">Fracture Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plasticity.html">Plasticity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elastic_constants.html">Elastic Constants</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/root.html">Matscipy root</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/calculators.html">Calculators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html">Elasticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/neighbours.html">Neighbour lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/numerical.html">Numerical</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/fracture_mechanics.html">Fracture Mechanics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html">Dislocation</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">matscipy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api_reference.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/root.html">Matscipy root</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/root.html#matscipy.has_parameter"><code class="docutils literal notranslate"><span class="pre">has_parameter()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/root.html#matscipy.parameter"><code class="docutils literal notranslate"><span class="pre">parameter()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/calculators.html">Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/elasticity.html">Elasticity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.full_3x3_to_Voigt_6_index"><code class="docutils literal notranslate"><span class="pre">full_3x3_to_Voigt_6_index()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.Voigt_6_to_full_3x3_strain"><code class="docutils literal notranslate"><span class="pre">Voigt_6_to_full_3x3_strain()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.Voigt_6_to_full_3x3_stress"><code class="docutils literal notranslate"><span class="pre">Voigt_6_to_full_3x3_stress()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.full_3x3_to_Voigt_6_strain"><code class="docutils literal notranslate"><span class="pre">full_3x3_to_Voigt_6_strain()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.full_3x3_to_Voigt_6_stress"><code class="docutils literal notranslate"><span class="pre">full_3x3_to_Voigt_6_stress()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.Voigt_6x6_to_full_3x3x3x3"><code class="docutils literal notranslate"><span class="pre">Voigt_6x6_to_full_3x3x3x3()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.full_3x3x3x3_to_Voigt_6x6"><code class="docutils literal notranslate"><span class="pre">full_3x3x3x3_to_Voigt_6x6()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.Voigt_6x6_to_cubic"><code class="docutils literal notranslate"><span class="pre">Voigt_6x6_to_cubic()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.cubic_to_Voigt_6x6"><code class="docutils literal notranslate"><span class="pre">cubic_to_Voigt_6x6()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.invariants"><code class="docutils literal notranslate"><span class="pre">invariants()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.rotate_cubic_elastic_constants"><code class="docutils literal notranslate"><span class="pre">rotate_cubic_elastic_constants()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.rotate_elastic_constants"><code class="docutils literal notranslate"><span class="pre">rotate_elastic_constants()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.CubicElasticModuli"><code class="docutils literal notranslate"><span class="pre">CubicElasticModuli</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.CubicElasticModuli.tol"><code class="docutils literal notranslate"><span class="pre">CubicElasticModuli.tol</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.CubicElasticModuli.__init__"><code class="docutils literal notranslate"><span class="pre">CubicElasticModuli.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.CubicElasticModuli.rotate"><code class="docutils literal notranslate"><span class="pre">CubicElasticModuli.rotate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.CubicElasticModuli.stiffness"><code class="docutils literal notranslate"><span class="pre">CubicElasticModuli.stiffness()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.CubicElasticModuli.compliance"><code class="docutils literal notranslate"><span class="pre">CubicElasticModuli.compliance()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.measure_triclinic_elastic_constants"><code class="docutils literal notranslate"><span class="pre">measure_triclinic_elastic_constants()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.generate_strained_configs"><code class="docutils literal notranslate"><span class="pre">generate_strained_configs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.fit_elastic_constants"><code class="docutils literal notranslate"><span class="pre">fit_elastic_constants()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.youngs_modulus"><code class="docutils literal notranslate"><span class="pre">youngs_modulus()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.poisson_ratio"><code class="docutils literal notranslate"><span class="pre">poisson_ratio()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.elastic_moduli"><code class="docutils literal notranslate"><span class="pre">elastic_moduli()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/elasticity.html#matscipy.elasticity.nonaffine_elastic_contribution"><code class="docutils literal notranslate"><span class="pre">nonaffine_elastic_contribution()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/neighbours.html">Neighbour lists</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.Neighbourhood"><code class="docutils literal notranslate"><span class="pre">Neighbourhood</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.Neighbourhood.__init__"><code class="docutils literal notranslate"><span class="pre">Neighbourhood.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.Neighbourhood.get_pairs"><code class="docutils literal notranslate"><span class="pre">Neighbourhood.get_pairs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.Neighbourhood.get_triplets"><code class="docutils literal notranslate"><span class="pre">Neighbourhood.get_triplets()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.Neighbourhood.make_result"><code class="docutils literal notranslate"><span class="pre">Neighbourhood.make_result()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.Neighbourhood.compute_distances"><code class="docutils literal notranslate"><span class="pre">Neighbourhood.compute_distances()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.Neighbourhood.connected_triplets"><code class="docutils literal notranslate"><span class="pre">Neighbourhood.connected_triplets()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.Neighbourhood.triplet_to_numbers"><code class="docutils literal notranslate"><span class="pre">Neighbourhood.triplet_to_numbers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.Neighbourhood.find_triplet_types"><code class="docutils literal notranslate"><span class="pre">Neighbourhood.find_triplet_types()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.CutoffNeighbourhood"><code class="docutils literal notranslate"><span class="pre">CutoffNeighbourhood</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.CutoffNeighbourhood.__init__"><code class="docutils literal notranslate"><span class="pre">CutoffNeighbourhood.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.CutoffNeighbourhood.get_pairs"><code class="docutils literal notranslate"><span class="pre">CutoffNeighbourhood.get_pairs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.CutoffNeighbourhood.get_triplets"><code class="docutils literal notranslate"><span class="pre">CutoffNeighbourhood.get_triplets()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.CutoffNeighbourhood.compute_distances"><code class="docutils literal notranslate"><span class="pre">CutoffNeighbourhood.compute_distances()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.CutoffNeighbourhood.connected_triplets"><code class="docutils literal notranslate"><span class="pre">CutoffNeighbourhood.connected_triplets()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.CutoffNeighbourhood.find_triplet_types"><code class="docutils literal notranslate"><span class="pre">CutoffNeighbourhood.find_triplet_types()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.CutoffNeighbourhood.make_result"><code class="docutils literal notranslate"><span class="pre">CutoffNeighbourhood.make_result()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.CutoffNeighbourhood.triplet_to_numbers"><code class="docutils literal notranslate"><span class="pre">CutoffNeighbourhood.triplet_to_numbers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.MolecularNeighbourhood"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.MolecularNeighbourhood.__init__"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.MolecularNeighbourhood.molecules"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.molecules</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.MolecularNeighbourhood.pair_type"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.pair_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.MolecularNeighbourhood.triplet_type"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.triplet_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.MolecularNeighbourhood.double_connectivity"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.double_connectivity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.MolecularNeighbourhood.complete_connectivity"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.complete_connectivity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.MolecularNeighbourhood.get_pairs"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.get_pairs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.MolecularNeighbourhood.get_triplets"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.get_triplets()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.MolecularNeighbourhood.find_triplet_types"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.find_triplet_types()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.MolecularNeighbourhood.compute_distances"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.compute_distances()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.MolecularNeighbourhood.connected_triplets"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.connected_triplets()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.MolecularNeighbourhood.make_result"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.make_result()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.MolecularNeighbourhood.triplet_to_numbers"><code class="docutils literal notranslate"><span class="pre">MolecularNeighbourhood.triplet_to_numbers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.mic"><code class="docutils literal notranslate"><span class="pre">mic()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.neighbour_list"><code class="docutils literal notranslate"><span class="pre">neighbour_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.triplet_list"><code class="docutils literal notranslate"><span class="pre">triplet_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.find_indices_of_reversed_pairs"><code class="docutils literal notranslate"><span class="pre">find_indices_of_reversed_pairs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/neighbours.html#matscipy.neighbours.find_common_neighbours"><code class="docutils literal notranslate"><span class="pre">find_common_neighbours()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/numerical.html">Numerical</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/numerical.html#matscipy.numerical.numerical_forces"><code class="docutils literal notranslate"><span class="pre">numerical_forces()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/numerical.html#matscipy.numerical.numerical_stress"><code class="docutils literal notranslate"><span class="pre">numerical_stress()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/numerical.html#matscipy.numerical.numerical_hessian"><code class="docutils literal notranslate"><span class="pre">numerical_hessian()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/numerical.html#matscipy.numerical.numerical_nonaffine_forces"><code class="docutils literal notranslate"><span class="pre">numerical_nonaffine_forces()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/fracture_mechanics.html">Fracture Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/dislocation.html">Dislocation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.make_screw_cyl"><code class="docutils literal notranslate"><span class="pre">make_screw_cyl()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.make_edge_cyl"><code class="docutils literal notranslate"><span class="pre">make_edge_cyl()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.plot_vitek"><code class="docutils literal notranslate"><span class="pre">plot_vitek()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.show_NEB_configurations"><code class="docutils literal notranslate"><span class="pre">show_NEB_configurations()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.show_configuration"><code class="docutils literal notranslate"><span class="pre">show_configuration()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.get_elastic_constants"><code class="docutils literal notranslate"><span class="pre">get_elastic_constants()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.make_barrier_configurations"><code class="docutils literal notranslate"><span class="pre">make_barrier_configurations()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.make_screw_cyl_kink"><code class="docutils literal notranslate"><span class="pre">make_screw_cyl_kink()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.slice_long_dislo"><code class="docutils literal notranslate"><span class="pre">slice_long_dislo()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.compare_configurations"><code class="docutils literal notranslate"><span class="pre">compare_configurations()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.cost_function"><code class="docutils literal notranslate"><span class="pre">cost_function()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.fit_core_position"><code class="docutils literal notranslate"><span class="pre">fit_core_position()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.fit_core_position_images"><code class="docutils literal notranslate"><span class="pre">fit_core_position_images()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.screw_cyl_tetrahedral"><code class="docutils literal notranslate"><span class="pre">screw_cyl_tetrahedral()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.screw_cyl_octahedral"><code class="docutils literal notranslate"><span class="pre">screw_cyl_octahedral()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.xtal_name"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.xtal_name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.bravais_basis"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.bravais_basis</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.align"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.align()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.atoms_in_unit_cell"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.atoms_in_unit_cell</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.basis_factor"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.basis_factor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.calc_num_atoms"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.calc_num_atoms()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.check_basis_volume"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.check_basis_volume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.chop_tolerance"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.chop_tolerance</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.convert_to_natural_basis"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.convert_to_natural_basis()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.element_basis"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.element_basis</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.find_directions"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.find_directions()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.find_ortho"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.find_ortho()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.get_lattice_constant"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.get_lattice_constant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.inside"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.inside()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.int_basis"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.int_basis</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.inverse_basis"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.inverse_basis</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.inverse_basis_factor"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.inverse_basis_factor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.make_crystal_basis"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.make_crystal_basis()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.make_list_of_atoms"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.make_list_of_atoms()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.make_unit_cell"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.make_unit_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.other"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.other</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.print_directions_and_miller"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.print_directions_and_miller()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.process_element"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.process_element()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicTetrahedralFactory.put_atom"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicTetrahedralFactory.put_atom()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.xtal_name"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.xtal_name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.bravais_basis"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.bravais_basis</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.align"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.align()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.atoms_in_unit_cell"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.atoms_in_unit_cell</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.basis_factor"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.basis_factor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.calc_num_atoms"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.calc_num_atoms()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.check_basis_volume"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.check_basis_volume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.chop_tolerance"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.chop_tolerance</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.convert_to_natural_basis"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.convert_to_natural_basis()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.element_basis"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.element_basis</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.find_directions"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.find_directions()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.find_ortho"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.find_ortho()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.get_lattice_constant"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.get_lattice_constant()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.inside"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.inside()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.int_basis"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.int_basis</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.inverse_basis"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.inverse_basis</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.inverse_basis_factor"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.inverse_basis_factor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.make_crystal_basis"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.make_crystal_basis()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.make_list_of_atoms"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.make_list_of_atoms()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.make_unit_cell"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.make_unit_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.other"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.other</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.print_directions_and_miller"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.print_directions_and_miller()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.process_element"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.process_element()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BodyCenteredCubicOctahedralFactory.put_atom"><code class="docutils literal notranslate"><span class="pre">BodyCenteredCubicOctahedralFactory.put_atom()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.dipole_displacement_angle"><code class="docutils literal notranslate"><span class="pre">dipole_displacement_angle()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.get_u_img"><code class="docutils literal notranslate"><span class="pre">get_u_img()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.make_screw_quadrupole"><code class="docutils literal notranslate"><span class="pre">make_screw_quadrupole()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.make_screw_quadrupole_kink"><code class="docutils literal notranslate"><span class="pre">make_screw_quadrupole_kink()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.make_edge_cyl_001_100"><code class="docutils literal notranslate"><span class="pre">make_edge_cyl_001_100()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.read_dislo_QMMM"><code class="docutils literal notranslate"><span class="pre">read_dislo_QMMM()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.plot_bulk"><code class="docutils literal notranslate"><span class="pre">plot_bulk()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.ovito_dxa_straight_dislo_info"><code class="docutils literal notranslate"><span class="pre">ovito_dxa_straight_dislo_info()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.get_centering_mask"><code class="docutils literal notranslate"><span class="pre">get_centering_mask()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.check_duplicates"><code class="docutils literal notranslate"><span class="pre">check_duplicates()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.CubicCrystalDislocation"><code class="docutils literal notranslate"><span class="pre">CubicCrystalDislocation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.CubicCrystalDislocation.__init__"><code class="docutils literal notranslate"><span class="pre">CubicCrystalDislocation.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.CubicCrystalDislocation.init_stroh"><code class="docutils literal notranslate"><span class="pre">CubicCrystalDislocation.init_stroh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.CubicCrystalDislocation.set_burgers"><code class="docutils literal notranslate"><span class="pre">CubicCrystalDislocation.set_burgers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.CubicCrystalDislocation.plot_unit_cell"><code class="docutils literal notranslate"><span class="pre">CubicCrystalDislocation.plot_unit_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.CubicCrystalDislocation.displacements"><code class="docutils literal notranslate"><span class="pre">CubicCrystalDislocation.displacements()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.CubicCrystalDislocation.build_cylinder"><code class="docutils literal notranslate"><span class="pre">CubicCrystalDislocation.build_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.CubicCrystalDislocation.build_glide_configurations"><code class="docutils literal notranslate"><span class="pre">CubicCrystalDislocation.build_glide_configurations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.CubicCrystalDislocation.build_impurity_cylinder"><code class="docutils literal notranslate"><span class="pre">CubicCrystalDislocation.build_impurity_cylinder()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCScrew111Dislocation"><code class="docutils literal notranslate"><span class="pre">BCCScrew111Dislocation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCScrew111Dislocation.__init__"><code class="docutils literal notranslate"><span class="pre">BCCScrew111Dislocation.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCScrew111Dislocation.build_cylinder"><code class="docutils literal notranslate"><span class="pre">BCCScrew111Dislocation.build_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCScrew111Dislocation.build_glide_configurations"><code class="docutils literal notranslate"><span class="pre">BCCScrew111Dislocation.build_glide_configurations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCScrew111Dislocation.build_impurity_cylinder"><code class="docutils literal notranslate"><span class="pre">BCCScrew111Dislocation.build_impurity_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCScrew111Dislocation.displacements"><code class="docutils literal notranslate"><span class="pre">BCCScrew111Dislocation.displacements()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCScrew111Dislocation.init_stroh"><code class="docutils literal notranslate"><span class="pre">BCCScrew111Dislocation.init_stroh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCScrew111Dislocation.plot_unit_cell"><code class="docutils literal notranslate"><span class="pre">BCCScrew111Dislocation.plot_unit_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCScrew111Dislocation.set_burgers"><code class="docutils literal notranslate"><span class="pre">BCCScrew111Dislocation.set_burgers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge111Dislocation"><code class="docutils literal notranslate"><span class="pre">BCCEdge111Dislocation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge111Dislocation.__init__"><code class="docutils literal notranslate"><span class="pre">BCCEdge111Dislocation.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge111Dislocation.build_cylinder"><code class="docutils literal notranslate"><span class="pre">BCCEdge111Dislocation.build_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge111Dislocation.build_glide_configurations"><code class="docutils literal notranslate"><span class="pre">BCCEdge111Dislocation.build_glide_configurations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge111Dislocation.build_impurity_cylinder"><code class="docutils literal notranslate"><span class="pre">BCCEdge111Dislocation.build_impurity_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge111Dislocation.displacements"><code class="docutils literal notranslate"><span class="pre">BCCEdge111Dislocation.displacements()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge111Dislocation.init_stroh"><code class="docutils literal notranslate"><span class="pre">BCCEdge111Dislocation.init_stroh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge111Dislocation.plot_unit_cell"><code class="docutils literal notranslate"><span class="pre">BCCEdge111Dislocation.plot_unit_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge111Dislocation.set_burgers"><code class="docutils literal notranslate"><span class="pre">BCCEdge111Dislocation.set_burgers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCMixed111Dislocation"><code class="docutils literal notranslate"><span class="pre">BCCMixed111Dislocation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCMixed111Dislocation.__init__"><code class="docutils literal notranslate"><span class="pre">BCCMixed111Dislocation.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCMixed111Dislocation.build_cylinder"><code class="docutils literal notranslate"><span class="pre">BCCMixed111Dislocation.build_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCMixed111Dislocation.build_glide_configurations"><code class="docutils literal notranslate"><span class="pre">BCCMixed111Dislocation.build_glide_configurations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCMixed111Dislocation.build_impurity_cylinder"><code class="docutils literal notranslate"><span class="pre">BCCMixed111Dislocation.build_impurity_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCMixed111Dislocation.displacements"><code class="docutils literal notranslate"><span class="pre">BCCMixed111Dislocation.displacements()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCMixed111Dislocation.init_stroh"><code class="docutils literal notranslate"><span class="pre">BCCMixed111Dislocation.init_stroh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCMixed111Dislocation.plot_unit_cell"><code class="docutils literal notranslate"><span class="pre">BCCMixed111Dislocation.plot_unit_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCMixed111Dislocation.set_burgers"><code class="docutils literal notranslate"><span class="pre">BCCMixed111Dislocation.set_burgers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge100Dislocation"><code class="docutils literal notranslate"><span class="pre">BCCEdge100Dislocation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge100Dislocation.__init__"><code class="docutils literal notranslate"><span class="pre">BCCEdge100Dislocation.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge100Dislocation.build_cylinder"><code class="docutils literal notranslate"><span class="pre">BCCEdge100Dislocation.build_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge100Dislocation.build_glide_configurations"><code class="docutils literal notranslate"><span class="pre">BCCEdge100Dislocation.build_glide_configurations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge100Dislocation.build_impurity_cylinder"><code class="docutils literal notranslate"><span class="pre">BCCEdge100Dislocation.build_impurity_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge100Dislocation.displacements"><code class="docutils literal notranslate"><span class="pre">BCCEdge100Dislocation.displacements()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge100Dislocation.init_stroh"><code class="docutils literal notranslate"><span class="pre">BCCEdge100Dislocation.init_stroh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge100Dislocation.plot_unit_cell"><code class="docutils literal notranslate"><span class="pre">BCCEdge100Dislocation.plot_unit_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge100Dislocation.set_burgers"><code class="docutils literal notranslate"><span class="pre">BCCEdge100Dislocation.set_burgers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge100110Dislocation"><code class="docutils literal notranslate"><span class="pre">BCCEdge100110Dislocation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge100110Dislocation.__init__"><code class="docutils literal notranslate"><span class="pre">BCCEdge100110Dislocation.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge100110Dislocation.build_cylinder"><code class="docutils literal notranslate"><span class="pre">BCCEdge100110Dislocation.build_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge100110Dislocation.build_glide_configurations"><code class="docutils literal notranslate"><span class="pre">BCCEdge100110Dislocation.build_glide_configurations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge100110Dislocation.build_impurity_cylinder"><code class="docutils literal notranslate"><span class="pre">BCCEdge100110Dislocation.build_impurity_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge100110Dislocation.displacements"><code class="docutils literal notranslate"><span class="pre">BCCEdge100110Dislocation.displacements()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge100110Dislocation.init_stroh"><code class="docutils literal notranslate"><span class="pre">BCCEdge100110Dislocation.init_stroh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge100110Dislocation.plot_unit_cell"><code class="docutils literal notranslate"><span class="pre">BCCEdge100110Dislocation.plot_unit_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.BCCEdge100110Dislocation.set_burgers"><code class="docutils literal notranslate"><span class="pre">BCCEdge100110Dislocation.set_burgers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide30degreePartial"><code class="docutils literal notranslate"><span class="pre">DiamondGlide30degreePartial</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide30degreePartial.__init__"><code class="docutils literal notranslate"><span class="pre">DiamondGlide30degreePartial.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide30degreePartial.build_cylinder"><code class="docutils literal notranslate"><span class="pre">DiamondGlide30degreePartial.build_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide30degreePartial.build_glide_configurations"><code class="docutils literal notranslate"><span class="pre">DiamondGlide30degreePartial.build_glide_configurations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide30degreePartial.build_impurity_cylinder"><code class="docutils literal notranslate"><span class="pre">DiamondGlide30degreePartial.build_impurity_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide30degreePartial.displacements"><code class="docutils literal notranslate"><span class="pre">DiamondGlide30degreePartial.displacements()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide30degreePartial.init_stroh"><code class="docutils literal notranslate"><span class="pre">DiamondGlide30degreePartial.init_stroh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide30degreePartial.plot_unit_cell"><code class="docutils literal notranslate"><span class="pre">DiamondGlide30degreePartial.plot_unit_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide30degreePartial.set_burgers"><code class="docutils literal notranslate"><span class="pre">DiamondGlide30degreePartial.set_burgers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide90degreePartial"><code class="docutils literal notranslate"><span class="pre">DiamondGlide90degreePartial</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide90degreePartial.__init__"><code class="docutils literal notranslate"><span class="pre">DiamondGlide90degreePartial.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide90degreePartial.build_cylinder"><code class="docutils literal notranslate"><span class="pre">DiamondGlide90degreePartial.build_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide90degreePartial.build_glide_configurations"><code class="docutils literal notranslate"><span class="pre">DiamondGlide90degreePartial.build_glide_configurations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide90degreePartial.build_impurity_cylinder"><code class="docutils literal notranslate"><span class="pre">DiamondGlide90degreePartial.build_impurity_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide90degreePartial.displacements"><code class="docutils literal notranslate"><span class="pre">DiamondGlide90degreePartial.displacements()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide90degreePartial.init_stroh"><code class="docutils literal notranslate"><span class="pre">DiamondGlide90degreePartial.init_stroh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide90degreePartial.plot_unit_cell"><code class="docutils literal notranslate"><span class="pre">DiamondGlide90degreePartial.plot_unit_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide90degreePartial.set_burgers"><code class="docutils literal notranslate"><span class="pre">DiamondGlide90degreePartial.set_burgers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.CubicCrystalDissociatedDislocation"><code class="docutils literal notranslate"><span class="pre">CubicCrystalDissociatedDislocation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.CubicCrystalDissociatedDislocation.__init__"><code class="docutils literal notranslate"><span class="pre">CubicCrystalDissociatedDislocation.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.CubicCrystalDissociatedDislocation.build_cylinder"><code class="docutils literal notranslate"><span class="pre">CubicCrystalDissociatedDislocation.build_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.CubicCrystalDissociatedDislocation.displacements"><code class="docutils literal notranslate"><span class="pre">CubicCrystalDissociatedDislocation.displacements()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.CubicCrystalDissociatedDislocation.build_glide_configurations"><code class="docutils literal notranslate"><span class="pre">CubicCrystalDissociatedDislocation.build_glide_configurations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.CubicCrystalDissociatedDislocation.build_impurity_cylinder"><code class="docutils literal notranslate"><span class="pre">CubicCrystalDissociatedDislocation.build_impurity_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.CubicCrystalDissociatedDislocation.init_stroh"><code class="docutils literal notranslate"><span class="pre">CubicCrystalDissociatedDislocation.init_stroh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.CubicCrystalDissociatedDislocation.plot_unit_cell"><code class="docutils literal notranslate"><span class="pre">CubicCrystalDissociatedDislocation.plot_unit_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.CubicCrystalDissociatedDislocation.set_burgers"><code class="docutils literal notranslate"><span class="pre">CubicCrystalDissociatedDislocation.set_burgers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlideScrew"><code class="docutils literal notranslate"><span class="pre">DiamondGlideScrew</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlideScrew.__init__"><code class="docutils literal notranslate"><span class="pre">DiamondGlideScrew.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlideScrew.build_cylinder"><code class="docutils literal notranslate"><span class="pre">DiamondGlideScrew.build_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlideScrew.build_glide_configurations"><code class="docutils literal notranslate"><span class="pre">DiamondGlideScrew.build_glide_configurations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlideScrew.build_impurity_cylinder"><code class="docutils literal notranslate"><span class="pre">DiamondGlideScrew.build_impurity_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlideScrew.displacements"><code class="docutils literal notranslate"><span class="pre">DiamondGlideScrew.displacements()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlideScrew.init_stroh"><code class="docutils literal notranslate"><span class="pre">DiamondGlideScrew.init_stroh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlideScrew.plot_unit_cell"><code class="docutils literal notranslate"><span class="pre">DiamondGlideScrew.plot_unit_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlideScrew.set_burgers"><code class="docutils literal notranslate"><span class="pre">DiamondGlideScrew.set_burgers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide60Degree"><code class="docutils literal notranslate"><span class="pre">DiamondGlide60Degree</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide60Degree.__init__"><code class="docutils literal notranslate"><span class="pre">DiamondGlide60Degree.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide60Degree.build_cylinder"><code class="docutils literal notranslate"><span class="pre">DiamondGlide60Degree.build_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide60Degree.build_glide_configurations"><code class="docutils literal notranslate"><span class="pre">DiamondGlide60Degree.build_glide_configurations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide60Degree.build_impurity_cylinder"><code class="docutils literal notranslate"><span class="pre">DiamondGlide60Degree.build_impurity_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide60Degree.displacements"><code class="docutils literal notranslate"><span class="pre">DiamondGlide60Degree.displacements()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide60Degree.init_stroh"><code class="docutils literal notranslate"><span class="pre">DiamondGlide60Degree.init_stroh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide60Degree.plot_unit_cell"><code class="docutils literal notranslate"><span class="pre">DiamondGlide60Degree.plot_unit_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.DiamondGlide60Degree.set_burgers"><code class="docutils literal notranslate"><span class="pre">DiamondGlide60Degree.set_burgers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCScrewShockleyPartial"><code class="docutils literal notranslate"><span class="pre">FCCScrewShockleyPartial</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCScrewShockleyPartial.__init__"><code class="docutils literal notranslate"><span class="pre">FCCScrewShockleyPartial.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCScrewShockleyPartial.build_cylinder"><code class="docutils literal notranslate"><span class="pre">FCCScrewShockleyPartial.build_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCScrewShockleyPartial.build_glide_configurations"><code class="docutils literal notranslate"><span class="pre">FCCScrewShockleyPartial.build_glide_configurations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCScrewShockleyPartial.build_impurity_cylinder"><code class="docutils literal notranslate"><span class="pre">FCCScrewShockleyPartial.build_impurity_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCScrewShockleyPartial.displacements"><code class="docutils literal notranslate"><span class="pre">FCCScrewShockleyPartial.displacements()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCScrewShockleyPartial.init_stroh"><code class="docutils literal notranslate"><span class="pre">FCCScrewShockleyPartial.init_stroh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCScrewShockleyPartial.plot_unit_cell"><code class="docutils literal notranslate"><span class="pre">FCCScrewShockleyPartial.plot_unit_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCScrewShockleyPartial.set_burgers"><code class="docutils literal notranslate"><span class="pre">FCCScrewShockleyPartial.set_burgers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCScrew110Dislocation"><code class="docutils literal notranslate"><span class="pre">FCCScrew110Dislocation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCScrew110Dislocation.__init__"><code class="docutils literal notranslate"><span class="pre">FCCScrew110Dislocation.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCScrew110Dislocation.build_cylinder"><code class="docutils literal notranslate"><span class="pre">FCCScrew110Dislocation.build_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCScrew110Dislocation.build_glide_configurations"><code class="docutils literal notranslate"><span class="pre">FCCScrew110Dislocation.build_glide_configurations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCScrew110Dislocation.build_impurity_cylinder"><code class="docutils literal notranslate"><span class="pre">FCCScrew110Dislocation.build_impurity_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCScrew110Dislocation.displacements"><code class="docutils literal notranslate"><span class="pre">FCCScrew110Dislocation.displacements()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCScrew110Dislocation.init_stroh"><code class="docutils literal notranslate"><span class="pre">FCCScrew110Dislocation.init_stroh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCScrew110Dislocation.plot_unit_cell"><code class="docutils literal notranslate"><span class="pre">FCCScrew110Dislocation.plot_unit_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCScrew110Dislocation.set_burgers"><code class="docutils literal notranslate"><span class="pre">FCCScrew110Dislocation.set_burgers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCEdgeShockleyPartial"><code class="docutils literal notranslate"><span class="pre">FCCEdgeShockleyPartial</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCEdgeShockleyPartial.__init__"><code class="docutils literal notranslate"><span class="pre">FCCEdgeShockleyPartial.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCEdgeShockleyPartial.build_cylinder"><code class="docutils literal notranslate"><span class="pre">FCCEdgeShockleyPartial.build_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCEdgeShockleyPartial.build_glide_configurations"><code class="docutils literal notranslate"><span class="pre">FCCEdgeShockleyPartial.build_glide_configurations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCEdgeShockleyPartial.build_impurity_cylinder"><code class="docutils literal notranslate"><span class="pre">FCCEdgeShockleyPartial.build_impurity_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCEdgeShockleyPartial.displacements"><code class="docutils literal notranslate"><span class="pre">FCCEdgeShockleyPartial.displacements()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCEdgeShockleyPartial.init_stroh"><code class="docutils literal notranslate"><span class="pre">FCCEdgeShockleyPartial.init_stroh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCEdgeShockleyPartial.plot_unit_cell"><code class="docutils literal notranslate"><span class="pre">FCCEdgeShockleyPartial.plot_unit_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCEdgeShockleyPartial.set_burgers"><code class="docutils literal notranslate"><span class="pre">FCCEdgeShockleyPartial.set_burgers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCEdge110Dislocation"><code class="docutils literal notranslate"><span class="pre">FCCEdge110Dislocation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCEdge110Dislocation.__init__"><code class="docutils literal notranslate"><span class="pre">FCCEdge110Dislocation.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCEdge110Dislocation.build_cylinder"><code class="docutils literal notranslate"><span class="pre">FCCEdge110Dislocation.build_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCEdge110Dislocation.build_glide_configurations"><code class="docutils literal notranslate"><span class="pre">FCCEdge110Dislocation.build_glide_configurations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCEdge110Dislocation.build_impurity_cylinder"><code class="docutils literal notranslate"><span class="pre">FCCEdge110Dislocation.build_impurity_cylinder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCEdge110Dislocation.displacements"><code class="docutils literal notranslate"><span class="pre">FCCEdge110Dislocation.displacements()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCEdge110Dislocation.init_stroh"><code class="docutils literal notranslate"><span class="pre">FCCEdge110Dislocation.init_stroh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCEdge110Dislocation.plot_unit_cell"><code class="docutils literal notranslate"><span class="pre">FCCEdge110Dislocation.plot_unit_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FCCEdge110Dislocation.set_burgers"><code class="docutils literal notranslate"><span class="pre">FCCEdge110Dislocation.set_burgers()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FixedLineAtoms"><code class="docutils literal notranslate"><span class="pre">FixedLineAtoms</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FixedLineAtoms.__init__"><code class="docutils literal notranslate"><span class="pre">FixedLineAtoms.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FixedLineAtoms.adjust_positions"><code class="docutils literal notranslate"><span class="pre">FixedLineAtoms.adjust_positions()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.FixedLineAtoms.adjust_forces"><code class="docutils literal notranslate"><span class="pre">FixedLineAtoms.adjust_forces()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/dislocation.html#matscipy.dislocation.gamma_line"><code class="docutils literal notranslate"><span class="pre">gamma_line()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="elastic_constants.html" class="btn btn-neutral float-left" title="Elastic Constants" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api/root.html" class="btn btn-neutral float-right" title="Matscipy root" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2015, James Kermode, Lars Pastewka.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -43,16 +43,15 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">matscipy.calculators.mcfm.mcfm_parallel package</a><ul>
-<li><a class="reference internal" href="#modules">Modules</a></li>
-<li><a class="reference internal" href="#matscipy-calculators-mcfm-mcfm-parallel-control-module">matscipy.calculators.mcfm.mcfm_parallel_control module</a></li>
-<li><a class="reference internal" href="#matscipy-calculators-mcfm-mcfm-parallel-worker-module">matscipy.calculators.mcfm.mcfm_parallel_worker module</a></li>
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="calculators.html">Calculators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fracture_mechanics.html">Fracture Mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plasticity.html">Plasticity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elastic_constants.html">Elastic Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a></li>
 </ul>
-</li>
-</ul>
-</div>
+
         </div>
       </div>
     </nav>
@@ -77,20 +76,62 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="matscipy-calculators-mcfm-mcfm-parallel-package">
-<h1>matscipy.calculators.mcfm.mcfm_parallel package<a class="headerlink" href="#matscipy-calculators-mcfm-mcfm-parallel-package" title="Permalink to this heading"></a></h1>
+  <section id="module-matscipy.calculators.mcfm.mcfm_parallel">
+<span id="matscipy-calculators-mcfm-mcfm-parallel-package"></span><h1>matscipy.calculators.mcfm.mcfm_parallel package<a class="headerlink" href="#module-matscipy.calculators.mcfm.mcfm_parallel" title="Permalink to this heading"></a></h1>
 <section id="modules">
 <h2>Modules<a class="headerlink" href="#modules" title="Permalink to this heading"></a></h2>
 <table class="autosummary longtable docutils align-default">
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#module-matscipy.calculators.mcfm.mcfm_parallel.mcfm_parallel_control" title="matscipy.calculators.mcfm.mcfm_parallel.mcfm_parallel_control"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.mcfm.mcfm_parallel.mcfm_parallel_control</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#module-matscipy.calculators.mcfm.mcfm_parallel.mcfm_parallel_worker" title="matscipy.calculators.mcfm.mcfm_parallel.mcfm_parallel_worker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.mcfm.mcfm_parallel.mcfm_parallel_worker</span></code></a></p></td>
+<td><p></p></td>
+</tr>
 </tbody>
 </table>
 </section>
-<section id="matscipy-calculators-mcfm-mcfm-parallel-control-module">
-<h2>matscipy.calculators.mcfm.mcfm_parallel_control module<a class="headerlink" href="#matscipy-calculators-mcfm-mcfm-parallel-control-module" title="Permalink to this heading"></a></h2>
+<section id="module-matscipy.calculators.mcfm.mcfm_parallel.mcfm_parallel_control">
+<span id="matscipy-calculators-mcfm-mcfm-parallel-control-module"></span><h2>matscipy.calculators.mcfm.mcfm_parallel_control module<a class="headerlink" href="#module-matscipy.calculators.mcfm.mcfm_parallel.mcfm_parallel_control" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.calculators.mcfm.mcfm_parallel.mcfm_parallel_control.get_cluster_data">
+<span class="sig-prename descclassname"><span class="pre">matscipy.calculators.mcfm.mcfm_parallel.mcfm_parallel_control.</span></span><span class="sig-name descname"><span class="pre">get_cluster_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clusterData</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mcfm_pot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.mcfm.mcfm_parallel.mcfm_parallel_control.get_cluster_data" title="Permalink to this definition"></a></dt>
+<dd><p>Obtain a list of cluster data with calculations being done in parallel</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atoms</strong> (<em>ase.Atoms</em>) – atoms object representing the structure</p></li>
+<li><p><strong>clusterData</strong> (<em>list</em>) – List of empty objects to be filled with clusterData instances</p></li>
+<li><p><strong>mcfm_pot</strong> (<em>matscipy.calculators.mcfm.MultiClusterForceMixing</em>) – qmmm potential</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="matscipy-calculators-mcfm-mcfm-parallel-worker-module">
-<h2>matscipy.calculators.mcfm.mcfm_parallel_worker module<a class="headerlink" href="#matscipy-calculators-mcfm-mcfm-parallel-worker-module" title="Permalink to this heading"></a></h2>
+<section id="module-matscipy.calculators.mcfm.mcfm_parallel.mcfm_parallel_worker">
+<span id="matscipy-calculators-mcfm-mcfm-parallel-worker-module"></span><h2>matscipy.calculators.mcfm.mcfm_parallel_worker module<a class="headerlink" href="#module-matscipy.calculators.mcfm.mcfm_parallel.mcfm_parallel_worker" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.calculators.mcfm.mcfm_parallel.mcfm_parallel_worker.worker_populate_cluster_data">
+<span class="sig-prename descclassname"><span class="pre">matscipy.calculators.mcfm.mcfm_parallel.mcfm_parallel_worker.</span></span><span class="sig-name descname"><span class="pre">worker_populate_cluster_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rank</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nProcLocal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atomic_cluster</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clusterIndexes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nAtoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qmCalculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharedList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug_qm_calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.calculators.mcfm.mcfm_parallel.mcfm_parallel_worker.worker_populate_cluster_data" title="Permalink to this definition"></a></dt>
+<dd><p>Function to calcuate total energy with TB</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rank</strong> (<em>int</em>) – process number</p></li>
+<li><p><strong>size</strong> (<em>int</em>) – total number of processes</p></li>
+<li><p><strong>nProcLocal</strong> (<em>int</em>) – number of CPUS to be used for this calculation</p></li>
+<li><p><strong>atomic_cluster</strong> (<em>ASE.atoms</em>) – Stucture on which ot perform the evaluation</p></li>
+<li><p><strong>clusterIndexes</strong> (<em>np.array</em>) – list with indexes of different cluster atoms</p></li>
+<li><p><strong>nAtoms</strong> (<em>int</em>) – number of atoms in the cluster</p></li>
+<li><p><strong>qmCalculator</strong> (<em>ASE.calculator</em>) – calculator to be used for the evaluation</p></li>
+<li><p><strong>sharedList</strong> (<em>list</em>) – mp shared list used ot store output data</p></li>
+<li><p><strong>debug_qm_calculator</strong> (<em>bool</em>) – run the simulation in debug mode</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 </section>
 
