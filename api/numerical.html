@@ -61,6 +61,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#matscipy.numerical.numerical_stress"><code class="docutils literal notranslate"><span class="pre">numerical_stress()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#matscipy.numerical.numerical_hessian"><code class="docutils literal notranslate"><span class="pre">numerical_hessian()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#matscipy.numerical.numerical_nonaffine_forces"><code class="docutils literal notranslate"><span class="pre">numerical_nonaffine_forces()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matscipy.numerical.numerical_nonaffine_forces_reference"><code class="docutils literal notranslate"><span class="pre">numerical_nonaffine_forces_reference()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matscipy.numerical.get_derivative_volume"><code class="docutils literal notranslate"><span class="pre">get_derivative_volume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matscipy.numerical.get_derivative_wave_vector"><code class="docutils literal notranslate"><span class="pre">get_derivative_wave_vector()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="fracture_mechanics.html">Fracture Mechanics</a></li>
@@ -99,7 +102,7 @@
 <p>Numerical algorithms for force, stress, hessian, etc.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.numerical.numerical_forces">
-<span class="sig-prename descclassname"><span class="pre">matscipy.numerical.</span></span><span class="sig-name descname"><span class="pre">numerical_forces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.numerical.numerical_forces" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">matscipy.numerical.</span></span><span class="sig-name descname"><span class="pre">numerical_forces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.numerical.numerical_forces" title="Permalink to this definition"></a></dt>
 <dd><p>Compute numerical forces using finite differences.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -113,7 +116,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.numerical.numerical_stress">
-<span class="sig-prename descclassname"><span class="pre">matscipy.numerical.</span></span><span class="sig-name descname"><span class="pre">numerical_stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voigt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.numerical.numerical_stress" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">matscipy.numerical.</span></span><span class="sig-name descname"><span class="pre">numerical_stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voigt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.numerical.numerical_stress" title="Permalink to this definition"></a></dt>
 <dd><p>Compute numerical stresses using finite differences.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -128,13 +131,13 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.numerical.numerical_hessian">
-<span class="sig-prename descclassname"><span class="pre">matscipy.numerical.</span></span><span class="sig-name descname"><span class="pre">numerical_hessian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.numerical.numerical_hessian" title="Permalink to this definition"></a></dt>
-<dd><p>Compute the hessian matrix from Jacobian of forces via central differences.</p>
+<span class="sig-prename descclassname"><span class="pre">matscipy.numerical.</span></span><span class="sig-name descname"><span class="pre">numerical_hessian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">coo_matrix</span></span></span><a class="headerlink" href="#matscipy.numerical.numerical_hessian" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the hessian matrix from Jacobian of forces using central differences.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>atoms</strong> (<em>ase.Atoms</em>) – Atomic configuration in a local or global minima.</p></li>
-<li><p><strong>dx</strong> (<em>float</em>) – Displacement increment</p></li>
+<li><p><strong>d</strong> (<em>float</em>) – Displacement increment</p></li>
 <li><p><strong>indices</strong> – Compute the hessian only for these atom IDs</p></li>
 </ul>
 </dd>
@@ -143,9 +146,43 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="matscipy.numerical.numerical_nonaffine_forces">
-<span class="sig-prename descclassname"><span class="pre">matscipy.numerical.</span></span><span class="sig-name descname"><span class="pre">numerical_nonaffine_forces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.numerical.numerical_nonaffine_forces" title="Permalink to this definition"></a></dt>
-<dd><p>Calculate numerical non-affine forces using central finite differences.</p>
+<span class="sig-prename descclassname"><span class="pre">matscipy.numerical.</span></span><span class="sig-name descname"><span class="pre">numerical_nonaffine_forces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.numerical.numerical_nonaffine_forces" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate numerical non-affine forces using central differences.</p>
 <p>This is done by deforming the box, rescaling atoms and measure the force.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atoms</strong> (<em>ase.Atoms</em>) – Atomic configuration in a local or global minima.</p></li>
+<li><p><strong>d</strong> (<em>float</em>) – Finite difference step size.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.numerical.numerical_nonaffine_forces_reference">
+<span class="sig-prename descclassname"><span class="pre">matscipy.numerical.</span></span><span class="sig-name descname"><span class="pre">numerical_nonaffine_forces_reference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.numerical.numerical_nonaffine_forces_reference" title="Permalink to this definition"></a></dt>
+<dd><p>Compute nonaffine forces in the reference configuration using finite differences.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.numerical.get_derivative_volume">
+<span class="sig-prename descclassname"><span class="pre">matscipy.numerical.</span></span><span class="sig-name descname"><span class="pre">get_derivative_volume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.numerical.get_derivative_volume" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate the derivative of the volume with respect to strain using central differences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>atoms</strong> (<em>ase.Atoms</em>) – Atomic configuration in a local or global minima.</p></li>
+<li><p><strong>d</strong> (<em>float</em>) – Finite difference step size.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.numerical.get_derivative_wave_vector">
+<span class="sig-prename descclassname"><span class="pre">matscipy.numerical.</span></span><span class="sig-name descname"><span class="pre">get_derivative_wave_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.numerical.get_derivative_wave_vector" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate the derivative of a wave vector with respect to strain using central differences.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
