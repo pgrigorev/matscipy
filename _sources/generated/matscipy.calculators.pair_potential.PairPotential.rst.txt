@@ -1,0 +1,69 @@
+﻿matscipy.calculators.pair\_potential.PairPotential
+==================================================
+
+.. currentmodule:: matscipy.calculators.pair_potential
+
+.. autoclass:: PairPotential
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~PairPotential.__init__
+      ~PairPotential.band_structure
+      ~PairPotential.calculate
+      ~PairPotential.calculate_numerical_forces
+      ~PairPotential.calculate_numerical_stress
+      ~PairPotential.calculate_properties
+      ~PairPotential.calculation_required
+      ~PairPotential.check_state
+      ~PairPotential.export_properties
+      ~PairPotential.get_atoms
+      ~PairPotential.get_birch_coefficients
+      ~PairPotential.get_born_elastic_constants
+      ~PairPotential.get_charges
+      ~PairPotential.get_default_parameters
+      ~PairPotential.get_dipole_moment
+      ~PairPotential.get_dynamical_matrix
+      ~PairPotential.get_elastic_constants
+      ~PairPotential.get_forces
+      ~PairPotential.get_hessian
+      ~PairPotential.get_magnetic_moment
+      ~PairPotential.get_magnetic_moments
+      ~PairPotential.get_non_affine_contribution_to_elastic_constants
+      ~PairPotential.get_nonaffine_forces
+      ~PairPotential.get_numerical_non_affine_forces
+      ~PairPotential.get_potential_energies
+      ~PairPotential.get_potential_energy
+      ~PairPotential.get_property
+      ~PairPotential.get_stress
+      ~PairPotential.get_stress_contribution_to_elastic_constants
+      ~PairPotential.get_stresses
+      ~PairPotential.read
+      ~PairPotential.read_atoms
+      ~PairPotential.reset
+      ~PairPotential.set
+      ~PairPotential.set_label
+      ~PairPotential.todict
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~PairPotential.default_parameters
+      ~PairPotential.directory
+      ~PairPotential.discard_results_on_any_change
+      ~PairPotential.ignored_changes
+      ~PairPotential.implemented_properties
+      ~PairPotential.label
+      ~PairPotential.name
+   
+   

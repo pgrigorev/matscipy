@@ -1,0 +1,38 @@
+﻿matscipy.logger
+===============
+
+.. automodule:: matscipy.logger
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      flatten
+      hdr_str
+      hdrfmt_str
+      numfmt_str
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Logger
+   
+   
+
+   
+   
+   
+
+
+

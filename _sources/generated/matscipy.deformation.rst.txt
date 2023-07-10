@@ -1,0 +1,35 @@
+﻿matscipy.deformation
+====================
+
+.. automodule:: matscipy.deformation
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      get_shear_distance
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      RemoveSimpleShearDeformation
+   
+   
+
+   
+   
+   
+
+
+

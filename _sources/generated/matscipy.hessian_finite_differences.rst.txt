@@ -1,0 +1,29 @@
+﻿matscipy.hessian\_finite\_differences
+=====================================
+
+.. automodule:: matscipy.hessian_finite_differences
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      fd_hessian
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

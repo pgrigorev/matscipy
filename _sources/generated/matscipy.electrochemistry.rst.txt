@@ -1,0 +1,33 @@
+﻿matscipy.electrochemistry
+=========================
+
+.. automodule:: matscipy.electrochemistry
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   matscipy.electrochemistry.continuous2discrete
+   matscipy.electrochemistry.poisson_boltzmann_distribution
+   matscipy.electrochemistry.poisson_nernst_planck_solver
+

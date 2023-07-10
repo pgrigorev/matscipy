@@ -1,0 +1,69 @@
+﻿matscipy.calculators.mcfm.MultiClusterForceMixingPotential
+==========================================================
+
+.. currentmodule:: matscipy.calculators.mcfm
+
+.. autoclass:: MultiClusterForceMixingPotential
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~MultiClusterForceMixingPotential.__init__
+      ~MultiClusterForceMixingPotential.attach_hybrid_data
+      ~MultiClusterForceMixingPotential.band_structure
+      ~MultiClusterForceMixingPotential.calculate
+      ~MultiClusterForceMixingPotential.calculate_numerical_forces
+      ~MultiClusterForceMixingPotential.calculate_numerical_stress
+      ~MultiClusterForceMixingPotential.calculate_properties
+      ~MultiClusterForceMixingPotential.calculation_required
+      ~MultiClusterForceMixingPotential.check_state
+      ~MultiClusterForceMixingPotential.combine_qm_mm_forces
+      ~MultiClusterForceMixingPotential.compute_stress
+      ~MultiClusterForceMixingPotential.evaluate_errors
+      ~MultiClusterForceMixingPotential.evaluate_qm_cluster_serial
+      ~MultiClusterForceMixingPotential.export_properties
+      ~MultiClusterForceMixingPotential.get_atoms
+      ~MultiClusterForceMixingPotential.get_charges
+      ~MultiClusterForceMixingPotential.get_default_parameters
+      ~MultiClusterForceMixingPotential.get_dipole_moment
+      ~MultiClusterForceMixingPotential.get_forces
+      ~MultiClusterForceMixingPotential.get_magnetic_moment
+      ~MultiClusterForceMixingPotential.get_magnetic_moments
+      ~MultiClusterForceMixingPotential.get_potential_energies
+      ~MultiClusterForceMixingPotential.get_potential_energy
+      ~MultiClusterForceMixingPotential.get_property
+      ~MultiClusterForceMixingPotential.get_stress
+      ~MultiClusterForceMixingPotential.get_stresses
+      ~MultiClusterForceMixingPotential.print_message
+      ~MultiClusterForceMixingPotential.produce_classical_results
+      ~MultiClusterForceMixingPotential.produce_qm_clusters
+      ~MultiClusterForceMixingPotential.read
+      ~MultiClusterForceMixingPotential.read_atoms
+      ~MultiClusterForceMixingPotential.reset
+      ~MultiClusterForceMixingPotential.set
+      ~MultiClusterForceMixingPotential.set_label
+      ~MultiClusterForceMixingPotential.set_qm_atoms
+      ~MultiClusterForceMixingPotential.todict
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~MultiClusterForceMixingPotential.all_changes
+      ~MultiClusterForceMixingPotential.default_parameters
+      ~MultiClusterForceMixingPotential.directory
+      ~MultiClusterForceMixingPotential.discard_results_on_any_change
+      ~MultiClusterForceMixingPotential.ignored_changes
+      ~MultiClusterForceMixingPotential.implemented_properties
+      ~MultiClusterForceMixingPotential.label
+   
+   

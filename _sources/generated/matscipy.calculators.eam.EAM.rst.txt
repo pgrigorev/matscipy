@@ -1,0 +1,72 @@
+﻿matscipy.calculators.eam.EAM
+============================
+
+.. currentmodule:: matscipy.calculators.eam
+
+.. autoclass:: EAM
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~EAM.__init__
+      ~EAM.band_structure
+      ~EAM.calculate
+      ~EAM.calculate_hessian_matrix
+      ~EAM.calculate_numerical_forces
+      ~EAM.calculate_numerical_stress
+      ~EAM.calculate_properties
+      ~EAM.calculation_required
+      ~EAM.check_state
+      ~EAM.energy_virial_and_forces
+      ~EAM.export_properties
+      ~EAM.get_atoms
+      ~EAM.get_birch_coefficients
+      ~EAM.get_born_elastic_constants
+      ~EAM.get_charges
+      ~EAM.get_default_parameters
+      ~EAM.get_dipole_moment
+      ~EAM.get_dynamical_matrix
+      ~EAM.get_elastic_constants
+      ~EAM.get_forces
+      ~EAM.get_hessian
+      ~EAM.get_magnetic_moment
+      ~EAM.get_magnetic_moments
+      ~EAM.get_non_affine_contribution_to_elastic_constants
+      ~EAM.get_nonaffine_forces
+      ~EAM.get_numerical_non_affine_forces
+      ~EAM.get_potential_energies
+      ~EAM.get_potential_energy
+      ~EAM.get_property
+      ~EAM.get_stress
+      ~EAM.get_stress_contribution_to_elastic_constants
+      ~EAM.get_stresses
+      ~EAM.read
+      ~EAM.read_atoms
+      ~EAM.reset
+      ~EAM.set
+      ~EAM.set_label
+      ~EAM.todict
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~EAM.cutoff
+      ~EAM.default_parameters
+      ~EAM.directory
+      ~EAM.discard_results_on_any_change
+      ~EAM.ignored_changes
+      ~EAM.implemented_properties
+      ~EAM.label
+      ~EAM.name
+   
+   

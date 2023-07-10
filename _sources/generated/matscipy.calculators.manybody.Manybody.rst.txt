@@ -1,0 +1,73 @@
+﻿matscipy.calculators.manybody.Manybody
+======================================
+
+.. currentmodule:: matscipy.calculators.manybody
+
+.. autoclass:: Manybody
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Manybody.__init__
+      ~Manybody.band_structure
+      ~Manybody.calculate
+      ~Manybody.calculate_numerical_forces
+      ~Manybody.calculate_numerical_stress
+      ~Manybody.calculate_properties
+      ~Manybody.calculation_required
+      ~Manybody.check_state
+      ~Manybody.export_properties
+      ~Manybody.get_atoms
+      ~Manybody.get_birch_coefficients
+      ~Manybody.get_born_elastic_constants
+      ~Manybody.get_charges
+      ~Manybody.get_cutoff
+      ~Manybody.get_default_parameters
+      ~Manybody.get_dipole_moment
+      ~Manybody.get_dynamical_matrix
+      ~Manybody.get_elastic_constants
+      ~Manybody.get_forces
+      ~Manybody.get_hessian
+      ~Manybody.get_hessian_from_second_derivative
+      ~Manybody.get_magnetic_moment
+      ~Manybody.get_magnetic_moments
+      ~Manybody.get_non_affine_contribution_to_elastic_constants
+      ~Manybody.get_non_affine_forces_from_second_derivative
+      ~Manybody.get_nonaffine_forces
+      ~Manybody.get_numerical_non_affine_forces
+      ~Manybody.get_potential_energies
+      ~Manybody.get_potential_energy
+      ~Manybody.get_property
+      ~Manybody.get_second_derivative
+      ~Manybody.get_stress
+      ~Manybody.get_stress_contribution_to_elastic_constants
+      ~Manybody.get_stresses
+      ~Manybody.read
+      ~Manybody.read_atoms
+      ~Manybody.reset
+      ~Manybody.set
+      ~Manybody.set_label
+      ~Manybody.todict
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Manybody.default_parameters
+      ~Manybody.directory
+      ~Manybody.discard_results_on_any_change
+      ~Manybody.ignored_changes
+      ~Manybody.implemented_properties
+      ~Manybody.label
+      ~Manybody.name
+   
+   

@@ -1,0 +1,69 @@
+﻿matscipy.calculators.polydisperse.Polydisperse
+==============================================
+
+.. currentmodule:: matscipy.calculators.polydisperse
+
+.. autoclass:: Polydisperse
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Polydisperse.__init__
+      ~Polydisperse.band_structure
+      ~Polydisperse.calculate
+      ~Polydisperse.calculate_numerical_forces
+      ~Polydisperse.calculate_numerical_stress
+      ~Polydisperse.calculate_properties
+      ~Polydisperse.calculation_required
+      ~Polydisperse.check_state
+      ~Polydisperse.export_properties
+      ~Polydisperse.get_atoms
+      ~Polydisperse.get_birch_coefficients
+      ~Polydisperse.get_born_elastic_constants
+      ~Polydisperse.get_charges
+      ~Polydisperse.get_default_parameters
+      ~Polydisperse.get_dipole_moment
+      ~Polydisperse.get_dynamical_matrix
+      ~Polydisperse.get_elastic_constants
+      ~Polydisperse.get_forces
+      ~Polydisperse.get_hessian
+      ~Polydisperse.get_magnetic_moment
+      ~Polydisperse.get_magnetic_moments
+      ~Polydisperse.get_non_affine_contribution_to_elastic_constants
+      ~Polydisperse.get_nonaffine_forces
+      ~Polydisperse.get_numerical_non_affine_forces
+      ~Polydisperse.get_potential_energies
+      ~Polydisperse.get_potential_energy
+      ~Polydisperse.get_property
+      ~Polydisperse.get_stress
+      ~Polydisperse.get_stress_contribution_to_elastic_constants
+      ~Polydisperse.get_stresses
+      ~Polydisperse.read
+      ~Polydisperse.read_atoms
+      ~Polydisperse.reset
+      ~Polydisperse.set
+      ~Polydisperse.set_label
+      ~Polydisperse.todict
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Polydisperse.default_parameters
+      ~Polydisperse.directory
+      ~Polydisperse.discard_results_on_any_change
+      ~Polydisperse.ignored_changes
+      ~Polydisperse.implemented_properties
+      ~Polydisperse.label
+      ~Polydisperse.name
+   
+   

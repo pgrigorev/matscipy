@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>matscipy.fracture_mechanics.clusters &mdash; matscipy devel documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="matscipy.fracture_mechanics.crack" href="matscipy.fracture_mechanics.crack.html" />
+    <link rel="prev" title="matscipy.fracture_mechanics" href="matscipy.fracture_mechanics.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            matscipy
+          </a>
+              <div class="version">
+                devel
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Matscipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../applications/index.html">Application domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Analysis tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calculators/index.html">Interatomic potentials</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#application-domains">Application domains</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="matscipy.dislocation.html">matscipy.dislocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matscipy.elasticity.html">matscipy.elasticity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matscipy.electrochemistry.html">matscipy.electrochemistry</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="matscipy.fracture_mechanics.html">matscipy.fracture_mechanics</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">matscipy.fracture_mechanics.clusters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="matscipy.fracture_mechanics.crack.html">matscipy.fracture_mechanics.crack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="matscipy.fracture_mechanics.crackpathsel.html">matscipy.fracture_mechanics.crackpathsel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="matscipy.fracture_mechanics.energy_release.html">matscipy.fracture_mechanics.energy_release</a></li>
+<li class="toctree-l4"><a class="reference internal" href="matscipy.fracture_mechanics.idealbrittlesolid.html">matscipy.fracture_mechanics.idealbrittlesolid</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="matscipy.pressurecoupling.html">matscipy.pressurecoupling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#structure-and-topology-generation">Structure and topology generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#analysis-tools">Analysis tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#interatomic-potentials">Interatomic potentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#utility-functions">Utility functions</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">matscipy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="matscipy.fracture_mechanics.html">matscipy.fracture_mechanics</a></li>
+      <li class="breadcrumb-item active">matscipy.fracture_mechanics.clusters</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/matscipy.fracture_mechanics.clusters.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-matscipy.fracture_mechanics.clusters">
+<span id="matscipy-fracture-mechanics-clusters"></span><h1>matscipy.fracture_mechanics.clusters<a class="headerlink" href="#module-matscipy.fracture_mechanics.clusters" title="Permalink to this heading"></a></h1>
+<p class="rubric">Functions</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.clusters.bcc" title="matscipy.fracture_mechanics.clusters.bcc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bcc</span></code></a>(*args, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.clusters.cluster" title="matscipy.fracture_mechanics.clusters.cluster"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cluster</span></code></a>(el, a0, n[, crack_surface, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.clusters.diamond" title="matscipy.fracture_mechanics.clusters.diamond"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diamond</span></code></a>(*args, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.clusters.fcc" title="matscipy.fracture_mechanics.clusters.fcc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fcc</span></code></a>(*args, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.clusters.sc" title="matscipy.fracture_mechanics.clusters.sc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sc</span></code></a>(*args, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.clusters.set_groups" title="matscipy.fracture_mechanics.clusters.set_groups"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_groups</span></code></a>(a, n, skin_x, skin_y[, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matscipy.fracture_mechanics.clusters.set_regions" title="matscipy.fracture_mechanics.clusters.set_regions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_regions</span></code></a>(cryst, r_I, cutoff, r_III)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.fracture_mechanics.clusters.set_groups">
+<span class="sig-prename descclassname"><span class="pre">matscipy.fracture_mechanics.clusters.</span></span><span class="sig-name descname"><span class="pre">set_groups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skin_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skin_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">central_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">central_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert_central</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.clusters.set_groups" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.fracture_mechanics.clusters.set_regions">
+<span class="sig-prename descclassname"><span class="pre">matscipy.fracture_mechanics.clusters.</span></span><span class="sig-name descname"><span class="pre">set_regions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cryst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_I</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cutoff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r_III</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.clusters.set_regions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.fracture_mechanics.clusters.cluster">
+<span class="sig-prename descclassname"><span class="pre">matscipy.fracture_mechanics.clusters.</span></span><span class="sig-name descname"><span class="pre">cluster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">el</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crack_surface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crack_front</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lattice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.clusters.cluster" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.fracture_mechanics.clusters.diamond">
+<span class="sig-prename descclassname"><span class="pre">matscipy.fracture_mechanics.clusters.</span></span><span class="sig-name descname"><span class="pre">diamond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.clusters.diamond" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.fracture_mechanics.clusters.fcc">
+<span class="sig-prename descclassname"><span class="pre">matscipy.fracture_mechanics.clusters.</span></span><span class="sig-name descname"><span class="pre">fcc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.clusters.fcc" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.fracture_mechanics.clusters.bcc">
+<span class="sig-prename descclassname"><span class="pre">matscipy.fracture_mechanics.clusters.</span></span><span class="sig-name descname"><span class="pre">bcc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.clusters.bcc" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="matscipy.fracture_mechanics.clusters.sc">
+<span class="sig-prename descclassname"><span class="pre">matscipy.fracture_mechanics.clusters.</span></span><span class="sig-name descname"><span class="pre">sc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matscipy.fracture_mechanics.clusters.sc" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="matscipy.fracture_mechanics.html" class="btn btn-neutral float-left" title="matscipy.fracture_mechanics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="matscipy.fracture_mechanics.crack.html" class="btn btn-neutral float-right" title="matscipy.fracture_mechanics.crack" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2015, James Kermode, Lars Pastewka.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

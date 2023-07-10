@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; matscipy devel documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="matscipy.dislocation" href="generated/matscipy.dislocation.html" />
+    <link rel="prev" title="Many-body potentials" href="calculators/manybody.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            matscipy
+          </a>
+              <div class="version">
+                devel
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Matscipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications/index.html">Application domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools/index.html">Analysis tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calculators/index.html">Interatomic potentials</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#application-domains">Application domains</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.dislocation.html">matscipy.dislocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.elasticity.html">matscipy.elasticity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.electrochemistry.html">matscipy.electrochemistry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.fracture_mechanics.html">matscipy.fracture_mechanics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.pressurecoupling.html">matscipy.pressurecoupling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#structure-and-topology-generation">Structure and topology generation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.hydrogenate.html">matscipy.hydrogenate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.opls.html">matscipy.opls</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#analysis-tools">Analysis tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.angle_distribution.html">matscipy.angle_distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.atomic_strain.html">matscipy.atomic_strain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.deformation.html">matscipy.deformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.drift.html">matscipy.drift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.hessian_finite_differences.html">matscipy.hessian_finite_differences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.neighbours.html">matscipy.neighbours</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.numerical.html">matscipy.numerical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.rings.html">matscipy.rings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#interatomic-potentials">Interatomic potentials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.calculator.html">matscipy.calculators.calculator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.pair_potential.PairPotential.html">matscipy.calculators.pair_potential.PairPotential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.polydisperse.Polydisperse.html">matscipy.calculators.polydisperse.Polydisperse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.mcfm.MultiClusterForceMixingPotential.html">matscipy.calculators.mcfm.MultiClusterForceMixingPotential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.eam.EAM.html">matscipy.calculators.eam.EAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.ewald.Ewald.html">matscipy.calculators.ewald.Ewald</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.calculators.manybody.Manybody.html">matscipy.calculators.manybody.Manybody</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#utility-functions">Utility functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.io.html">matscipy.io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.numpy_tricks.html">matscipy.numpy_tricks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/matscipy.logger.html">matscipy.logger</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">matscipy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading"></a></h1>
+<section id="application-domains">
+<h2>Application domains<a class="headerlink" href="#application-domains" title="Permalink to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.dislocation.html#module-matscipy.dislocation" title="matscipy.dislocation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.dislocation</span></code></a></p></td>
+<td><p>Tools for studying structure and movement of dislocations.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/matscipy.elasticity.html#module-matscipy.elasticity" title="matscipy.elasticity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.elasticity</span></code></a></p></td>
+<td><p>Computing elastic moduli of atomistic systems under small deformations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.electrochemistry.html#module-matscipy.electrochemistry" title="matscipy.electrochemistry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.electrochemistry</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/matscipy.fracture_mechanics.html#module-matscipy.fracture_mechanics" title="matscipy.fracture_mechanics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.fracture_mechanics</span></code></a></p></td>
+<td><p>Calculation of continuum linear elastic displacement fields near crack tips, including support for anisotropy in the elastic response.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.pressurecoupling.html#module-matscipy.pressurecoupling" title="matscipy.pressurecoupling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.pressurecoupling</span></code></a></p></td>
+<td><p>Classes to be used with ASE in order to perform pressure relaxation and/or sliding simulations under pressure.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="structure-and-topology-generation">
+<h2>Structure and topology generation<a class="headerlink" href="#structure-and-topology-generation" title="Permalink to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.hydrogenate.html#module-matscipy.hydrogenate" title="matscipy.hydrogenate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.hydrogenate</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/matscipy.opls.html#module-matscipy.opls" title="matscipy.opls"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.opls</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="analysis-tools">
+<h2>Analysis tools<a class="headerlink" href="#analysis-tools" title="Permalink to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.angle_distribution.html#module-matscipy.angle_distribution" title="matscipy.angle_distribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.angle_distribution</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/matscipy.atomic_strain.html#module-matscipy.atomic_strain" title="matscipy.atomic_strain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.atomic_strain</span></code></a></p></td>
+<td><p>Compute deformation gradient tensor and D^2_min measure for non-affine displacements.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.deformation.html#module-matscipy.deformation" title="matscipy.deformation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.deformation</span></code></a></p></td>
+<td><p>Tools related to homogenously deformed volumes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/matscipy.drift.html#module-matscipy.drift" title="matscipy.drift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.drift</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.hessian_finite_differences.html#module-matscipy.hessian_finite_differences" title="matscipy.hessian_finite_differences"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.hessian_finite_differences</span></code></a></p></td>
+<td><p>Deprecated module.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/matscipy.neighbours.html#module-matscipy.neighbours" title="matscipy.neighbours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.neighbours</span></code></a></p></td>
+<td><p>Tools for computing and working with local topology of atomic structures.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.numerical.html#module-matscipy.numerical" title="matscipy.numerical"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.numerical</span></code></a></p></td>
+<td><p>Numerical algorithms for force, stress, hessian, etc.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/matscipy.rings.html#module-matscipy.rings" title="matscipy.rings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.rings</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="interatomic-potentials">
+<h2>Interatomic potentials<a class="headerlink" href="#interatomic-potentials" title="Permalink to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.calculators.calculator.html#module-matscipy.calculators.calculator" title="matscipy.calculators.calculator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.calculator</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/matscipy.calculators.pair_potential.PairPotential.html#matscipy.calculators.pair_potential.PairPotential" title="matscipy.calculators.pair_potential.PairPotential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.pair_potential.PairPotential</span></code></a>(f)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.calculators.polydisperse.Polydisperse.html#matscipy.calculators.polydisperse.Polydisperse" title="matscipy.calculators.polydisperse.Polydisperse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.polydisperse.Polydisperse</span></code></a>(f)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/matscipy.calculators.mcfm.MultiClusterForceMixingPotential.html#matscipy.calculators.mcfm.MultiClusterForceMixingPotential" title="matscipy.calculators.mcfm.MultiClusterForceMixingPotential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.mcfm.MultiClusterForceMixingPotential</span></code></a>([...])</p></td>
+<td><p>Subclass of ASE.Calculator facilitating a support for multiple QM clusters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.calculators.eam.EAM.html#matscipy.calculators.eam.EAM" title="matscipy.calculators.eam.EAM"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.eam.EAM</span></code></a>([fn, ...])</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/matscipy.calculators.ewald.Ewald.html#matscipy.calculators.ewald.Ewald" title="matscipy.calculators.ewald.Ewald"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.ewald.Ewald</span></code></a>()</p></td>
+<td><p>Ewal summation calculator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.calculators.manybody.Manybody.html#matscipy.calculators.manybody.Manybody" title="matscipy.calculators.manybody.Manybody"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.calculators.manybody.Manybody</span></code></a>(...)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="utility-functions">
+<h2>Utility functions<a class="headerlink" href="#utility-functions" title="Permalink to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.io.html#module-matscipy.io" title="matscipy.io"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.io</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/matscipy.numpy_tricks.html#module-matscipy.numpy_tricks" title="matscipy.numpy_tricks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.numpy_tricks</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/matscipy.logger.html#module-matscipy.logger" title="matscipy.logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matscipy.logger</span></code></a></p></td>
+<td><p>Log status to screen.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="calculators/manybody.html" class="btn btn-neutral float-left" title="Many-body potentials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="generated/matscipy.dislocation.html" class="btn btn-neutral float-right" title="matscipy.dislocation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2015, James Kermode, Lars Pastewka.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

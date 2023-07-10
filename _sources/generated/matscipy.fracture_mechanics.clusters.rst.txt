@@ -1,0 +1,35 @@
+matscipy.fracture\_mechanics.clusters
+=====================================
+
+.. automodule:: matscipy.fracture_mechanics.clusters
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      bcc
+      cluster
+      diamond
+      fcc
+      sc
+      set_groups
+      set_regions
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

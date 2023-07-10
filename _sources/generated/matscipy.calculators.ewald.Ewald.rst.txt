@@ -1,0 +1,83 @@
+﻿matscipy.calculators.ewald.Ewald
+================================
+
+.. currentmodule:: matscipy.calculators.ewald
+
+.. autoclass:: Ewald
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Ewald.__init__
+      ~Ewald.allowed_wave_vectors
+      ~Ewald.band_structure
+      ~Ewald.calculate
+      ~Ewald.calculate_numerical_forces
+      ~Ewald.calculate_numerical_stress
+      ~Ewald.calculate_properties
+      ~Ewald.calculation_required
+      ~Ewald.check_state
+      ~Ewald.determine_alpha
+      ~Ewald.determine_kc
+      ~Ewald.determine_nk
+      ~Ewald.export_properties
+      ~Ewald.first_derivative_kspace
+      ~Ewald.get_atoms
+      ~Ewald.get_birch_coefficients
+      ~Ewald.get_born_elastic_constants
+      ~Ewald.get_charges
+      ~Ewald.get_default_parameters
+      ~Ewald.get_dipole_moment
+      ~Ewald.get_dynamical_matrix
+      ~Ewald.get_elastic_constants
+      ~Ewald.get_forces
+      ~Ewald.get_hessian
+      ~Ewald.get_magnetic_moment
+      ~Ewald.get_magnetic_moments
+      ~Ewald.get_non_affine_contribution_to_elastic_constants
+      ~Ewald.get_nonaffine_forces
+      ~Ewald.get_numerical_non_affine_forces
+      ~Ewald.get_potential_energies
+      ~Ewald.get_potential_energy
+      ~Ewald.get_property
+      ~Ewald.get_stress
+      ~Ewald.get_stress_contribution_to_elastic_constants
+      ~Ewald.get_stresses
+      ~Ewald.kspace_energy
+      ~Ewald.kspace_properties
+      ~Ewald.read
+      ~Ewald.read_atoms
+      ~Ewald.reset
+      ~Ewald.reset_kspace
+      ~Ewald.rms_kspace
+      ~Ewald.rms_rspace
+      ~Ewald.self_energy
+      ~Ewald.set
+      ~Ewald.set_label
+      ~Ewald.stress_kspace
+      ~Ewald.todict
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Ewald.alpha
+      ~Ewald.default_parameters
+      ~Ewald.directory
+      ~Ewald.discard_results_on_any_change
+      ~Ewald.ignored_changes
+      ~Ewald.implemented_properties
+      ~Ewald.label
+      ~Ewald.name
+      ~Ewald.short_range
+   
+   
