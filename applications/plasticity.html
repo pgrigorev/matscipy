@@ -21,7 +21,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Fracture Mechanics" href="fracture_mechanics.html" />
+    <link rel="next" title="Building cylindrical configurations with dislocations" href="cylinder_configurations.html" />
     <link rel="prev" title="Elastic Constants" href="elastic_constants.html" /> 
 </head>
 
@@ -52,7 +52,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Matscipy</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Application domains</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="elastic_constants.html">Elastic Constants</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Plasticity</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Plasticity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cylinder_configurations.html">Building cylindrical configurations with dislocations</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="fracture_mechanics.html">Fracture Mechanics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tribology.html">Tribology</a></li>
 </ul>
@@ -89,7 +92,25 @@
              
   <section id="plasticity">
 <h1>Plasticity<a class="headerlink" href="#plasticity" title="Permalink to this heading"></a></h1>
-<p>Here’s what you can do with Matscipy in the field of plasticity.</p>
+<p>For large loads, solids can respond with irreversible deformation. One form of irreversibility is plasticity, that is carried by extended defects, the dislocations, in crystals. The module <a class="reference internal" href="../generated/matscipy.dislocation.html#module-matscipy.dislocation" title="matscipy.dislocation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">matscipy.dislocation</span></code></a> implements tools for studying structure and movement of dislocations. Construction and analysis of model atomic systems is implemented for compact and dissociated screw, as well as edge dislocations in cubic crystals. The implementation supports ideal straight as well as kinked dislocations.</p>
+<p>Creating an atomistic system containing a dislocation requires a rather deep knowledge of crystallographic system, elastisity theory as well as hands on experience with atomistic simulations. Thus, it can be challenging for people not familiar to the field. Within this module we attempt to create a flexible, friendly and pythonic tool to enable atomistic simulations of dislocations with ease. The base of the model is <a class="reference internal" href="../generated/matscipy.dislocation.html#matscipy.dislocation.CubicCrystalDislocation" title="matscipy.dislocation.CubicCrystalDislocation"><code class="xref py py-class docutils literal notranslate"><span class="pre">matscipy.dislocation.CubicCrystalDislocation</span></code></a> class that contains all the necessary information to create an atomistic dislocation. To start experimenting, a user only has to choose the dislocation of interest and provide a lattice parameter and elastic constants.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cylinder_configurations.html">Building cylindrical configurations with dislocations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cylinder_configurations.html#body-centered-cubic">Body Centered Cubic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cylinder_configurations.html#screw-dislocation">1/2&lt;111&gt;{110} screw dislocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cylinder_configurations.html#edge-dislocation">1/2&lt;111&gt;{110} edge dislocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cylinder_configurations.html#mixed-dislocation">1/2&lt;111&gt;{110} mixed dislocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cylinder_configurations.html#edge-junction-dislocation">&lt;100&gt;{110} edge ‘junction’ dislocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cylinder_configurations.html#id1">&lt;100&gt;{001} edge dislocation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cylinder_configurations.html#face-centered-cubic">Face Centered Cubic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cylinder_configurations.html#diamond">Diamond</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </section>
 
 
@@ -97,7 +118,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="elastic_constants.html" class="btn btn-neutral float-left" title="Elastic Constants" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="fracture_mechanics.html" class="btn btn-neutral float-right" title="Fracture Mechanics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="cylinder_configurations.html" class="btn btn-neutral float-right" title="Building cylindrical configurations with dislocations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
